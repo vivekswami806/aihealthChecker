@@ -1,0 +1,290 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+  DOCTOR
+}
+
+enum AuthProvider {
+  LOCAL
+  GOOGLE
+  GITHUB
+}
+
+enum ReportStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum SeverityLevel {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum DiseaseStatus {
+  ACTIVE
+  IMPROVING
+  STABLE
+  RESOLVED
+  WORSENING
+}
+
+enum NotificationType {
+  INFO
+  WARNING
+  ALERT
+  REMINDER
+}
+
+enum SubscriptionPlan {
+  FREE
+  PREMIUM
+  FAMILY
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  CANCELLED
+}
+
+model User {
+  id           String       @id @default(uuid())
+  fullName     String
+  email        String       @unique
+  passwordHash String?
+  profileImage String?
+
+  authProvider AuthProvider @default(LOCAL)
+
+  googleId     String?      @unique
+  githubId     String?      @unique
+
+  role         UserRole     @default(USER)
+  isVerified   Boolean      @default(false)
+
+  refreshToken String?
+  lastLoginAt  DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  medicalReports    MedicalReport[]
+  diseaseHistories  DiseaseHistory[]
+  notifications     Notification[]
+  healthScores      HealthScore[]
+  subscriptions     Subscription[]
+  reportComparisons ReportComparison[]
+  sessions          Session[]
+
+  @@map("users")
+}
+model MedicalReport {
+  id     String @id @default(uuid())
+  userId String
+
+  reportName    String
+  reportType    String
+  fileUrl       String
+  extractedText String? @db.Text
+
+  fileSize Int?
+  mimeType String?
+
+  reportStatus ReportStatus @default(PENDING)
+
+  uploadDate DateTime @default(now())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  aiAnalysis     AIAnalysis?
+  oldComparisons ReportComparison[] @relation("OldReport")
+  newComparisons ReportComparison[] @relation("NewReport")
+
+  @@index([userId])
+  @@index([reportStatus])
+  @@map("medical_reports")
+}
+
+model AIAnalysis {
+  id       String @id @default(uuid())
+  reportId String @unique
+
+  diseaseDetected String
+  severity        SeverityLevel
+  riskScore       Float
+
+  aiSummary            String  @db.Text
+  causes               String  @db.Text
+  precautions          String  @db.Text
+  dietSuggestions      String  @db.Text
+  exerciseSuggestions  String  @db.Text
+  medicationsWarning   String? @db.Text
+  doctorRecommendation String?
+
+  generatedAt DateTime @default(now())
+
+  report MedicalReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+
+  @@index([severity])
+  @@map("ai_analyses")
+}
+
+model DiseaseHistory {
+  id     String @id @default(uuid())
+  userId String
+
+  diseaseName String
+
+  firstDetected DateTime
+  lastDetected  DateTime
+
+  recurrenceCount Int @default(1)
+
+  currentStatus    DiseaseStatus
+  progressionLevel String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([diseaseName])
+  @@map("disease_history")
+}
+
+model ReportComparison {
+  id String @id @default(uuid())
+
+  userId String
+
+  oldReportId String
+  newReportId String
+
+  comparisonSummary      String @db.Text
+  healthImprovementScore Float
+
+  detectedChanges Json
+
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  oldReport MedicalReport @relation("OldReport", fields: [oldReportId], references: [id], onDelete: Cascade)
+
+  newReport MedicalReport @relation("NewReport", fields: [newReportId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("report_comparisons")
+}
+
+model Notification {
+  id     String @id @default(uuid())
+  userId String
+
+  title   String
+  message String @db.Text
+
+  type NotificationType @default(INFO)
+
+  isRead Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([isRead])
+  @@map("notifications")
+}
+
+model HealthScore {
+  id     String @id @default(uuid())
+  userId String
+
+  score Float
+
+  bmi              Float?
+  bloodPressure    String?
+  sugarLevel       Float?
+  cholesterolLevel Float?
+
+  calculatedAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("health_scores")
+}
+
+model Subscription {
+  id     String @id @default(uuid())
+  userId String
+
+  planName SubscriptionPlan @default(FREE)
+
+  startDate  DateTime @default(now())
+  expiryDate DateTime
+
+  paymentStatus PaymentStatus @default(PENDING)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("subscriptions")
+}
+
+model OTPVerification {
+  id String @id @default(uuid())
+
+  email String
+  otp   String
+
+  expiresAt DateTime
+  verified  Boolean  @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@index([email])
+  @@map("otp_verifications")
+}
+
+model Session {
+  id String @id @default(uuid())
+
+  userId       String
+  refreshToken String @unique
+
+  ipAddress String?
+  userAgent String?
+
+  expiresAt DateTime
+
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("sessions")
+}

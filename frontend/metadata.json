@@ -1,0 +1,14 @@
+{
+  "name": "HealthAI Pro",
+  "description": "A comprehensive healthcare SaaS platform for AI-powered medical report analysis, health tracking, and personal wellness monitoring.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "AI Medical Report Analysis",
+    "Health Timeline Tracking",
+    "AI Health Assistant",
+    "Disease Risk Assessment"
+  ]
+}
