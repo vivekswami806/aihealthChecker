@@ -171,6 +171,19 @@ export class ReportRepository {
       failedReports,
     };
   }
+
+  async findPreviousWithAnalysis(userId, currentReportId) {
+    return prisma.medicalReport.findFirst({
+      where: {
+        userId,
+        id: { not: currentReportId },
+        reportStatus: 'COMPLETED',
+        aiAnalysis: { isNot: null },
+      },
+      orderBy: { uploadDate: 'desc' },
+      include: { aiAnalysis: true },
+    });
+  }
 }
 
 export default new ReportRepository();

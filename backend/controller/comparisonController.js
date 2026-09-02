@@ -1,6 +1,6 @@
 import { ApiResponse } from '../utils/apiResponse.js';
 import { asyncHandler } from '../utils/asyncHandler.js';
-import comparisonService from '../services/comparisonService.js';
+import comparisonService from '../services/comparisonServices.js';
 import prisma from '../config/database.js';
 
 export const comparisonController = {
@@ -47,24 +47,21 @@ export const comparisonController = {
   }),
 
   createHealthScore: asyncHandler(async (req, res) => {
-    const { bmi, blood_pressure, sugar_level, cholesterol_level, heart_rate } =
-      req.body;
+    const { bmi, bloodPressure, sugarLevel, cholesterolLevel } = req.body;
 
-    // Calculate overall score (basic algorithm)
     let score = 100;
     if (bmi && (bmi < 18.5 || bmi > 29.9)) score -= 15;
-    if (sugar_level && (sugar_level < 70 || sugar_level > 140)) score -= 15;
-    if (cholesterol_level && cholesterol_level > 200) score -= 15;
+    if (sugarLevel && (sugarLevel < 70 || sugarLevel > 140)) score -= 15;
+    if (cholesterolLevel && cholesterolLevel > 200) score -= 15;
 
     const healthScore = await prisma.healthScore.create({
       data: {
-        user_id: req.user.id,
-        overall_score: Math.max(0, score),
-        bmi,
-        blood_pressure,
-        sugar_level,
-        cholesterol_level,
-        heart_rate,
+        userId: req.user.id,
+        score: Math.max(0, score),
+        bmi: bmi ?? null,
+        bloodPressure: bloodPressure ?? null,
+        sugarLevel: sugarLevel ?? null,
+        cholesterolLevel: cholesterolLevel ?? null,
       },
     });
 
@@ -83,12 +80,12 @@ export const comparisonController = {
 
     const [scores, total] = await Promise.all([
       prisma.healthScore.findMany({
-        where: { user_id: req.user.id },
+        where: { userId: req.user.id },
         skip,
         take: limit,
-        orderBy: { calculated_at: 'desc' },
+        orderBy: { calculatedAt: 'desc' },
       }),
-      prisma.healthScore.count({ where: { user_id: req.user.id } }),
+      prisma.healthScore.count({ where: { userId: req.user.id } }),
     ]);
 
     return ApiResponse.paginated(
@@ -103,8 +100,8 @@ export const comparisonController = {
 
   getLatestHealthScore: asyncHandler(async (req, res) => {
     const score = await prisma.healthScore.findFirst({
-      where: { user_id: req.user.id },
-      orderBy: { calculated_at: 'desc' },
+      where: { userId: req.user.id },
+      orderBy: { calculatedAt: 'desc' },
     });
 
     return ApiResponse.success(res, score, 'Latest health score fetched successfully');

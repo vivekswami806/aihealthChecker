@@ -66,7 +66,10 @@ export const config = {
     apiKey: process.env.GEMINI_API_KEY,
   },
   googleapi: {
-    apiKey: process.env.GOOGLE_API_KEY,
+    apiKey:
+      process.env.GEMINI_API_KEY ||
+      process.env.GOOGLE_API_KEY ||
+      process.env.GOOGLE_API_KEY2,
   },
 
   // Logging

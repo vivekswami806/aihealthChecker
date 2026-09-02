@@ -91,6 +91,7 @@ model User {
   subscriptions     Subscription[]
   reportComparisons ReportComparison[]
   sessions          Session[]
+  chatConversations ChatConversation[]
 
   @@map("users")
 }
@@ -287,4 +288,33 @@ model Session {
 
   @@index([userId])
   @@map("sessions")
+}
+
+model ChatConversation {
+  id     String @id @default(uuid())
+  userId String
+  title  String @default("New chat")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user     User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  messages ChatMessage[]
+
+  @@index([userId])
+  @@map("chat_conversations")
+}
+
+model ChatMessage {
+  id             String @id @default(uuid())
+  conversationId String
+  role           String
+  content        String @db.Text
+
+  createdAt DateTime @default(now())
+
+  conversation ChatConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@index([conversationId])
+  @@map("chat_messages")
 }

@@ -1,7 +1,7 @@
 import schedule from 'node-schedule';
 import logger from '../config/logger.js';
 import prisma from '../config/database.js';
-import notificationService from '../services/notificationService.js';
+import notificationService from '../services/notificationServices.js';
 
 export class CronJobs {
   static initialize() {

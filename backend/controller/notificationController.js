@@ -1,11 +1,11 @@
-import notificationService from "../services/notificationService.js";
+import notificationService from "../services/notificationServices.js";
 import { AppError } from "../middleware/errorHandler.js";
 import logger from "../config/logger.js";
 
 export class NotificationController {
   
     // 📥 Get notifications
-    async getNotifications(req, res, next) {
+    async getNotifications(req, res, next) { 
       try {
         const userId = req.user.id;
         const { page = 1, limit = 20 } = req.query;
@@ -86,13 +86,14 @@ export class NotificationController {
     // 🗑 Delete notification
     async deleteNotification(req, res, next) {
       try {
+        const userId = req.user.id;
         const { notificationId } = req.params;
   
         if (!notificationId) {
           throw new AppError("Notification ID required", 400);
         }
   
-        await notificationService.deleteNotification(notificationId);
+        await notificationService.deleteNotification(notificationId, userId);
   
         res.status(200).json({
           success: true,

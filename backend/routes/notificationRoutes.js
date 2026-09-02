@@ -1,8 +1,7 @@
 import { Router } from 'express';
-import notificationController from '../controllers/notificationController.js';
 import { authenticate } from '../middleware/auth.js';
-import { paginationValidator } from '../middleware/validators.js';
-import auth from "../middleware/auth.js";
+import { paginationValidator } from '../limiting/validators.js';
+import notificationController from '../controller/notificationController.js';
 
 const router = Router();
 
@@ -13,15 +12,15 @@ router.use(authenticate);
 router.get('/', paginationValidator, notificationController.getNotifications);
 
 // Get unread count
-router.get('/unread/count',auth, notificationController.getUnreadCount);
+router.get('/unread/count', notificationController.getUnreadCount);
+
+// Mark all as read (before /:notificationId routes)
+router.put('/read-all', notificationController.markAllAsRead);
 
 // Mark as read
-router.put('/:id/read',auth, notificationController.markAsRead);
-
-// Mark all as read
-router.put('/read-all', auth, notificationController.markAllAsRead);
+router.put('/:notificationId/read', notificationController.markAsRead);
 
 // Delete notification
-router.delete('/:id', auth, notificationController.deleteNotification);
+router.delete('/:notificationId', notificationController.deleteNotification);
 
 export default router;

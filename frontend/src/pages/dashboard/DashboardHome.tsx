@@ -67,7 +67,7 @@ export default function DashboardHome() {
       {/* Welcome Section */}
       <section className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">Welcome back, {user.name}</h1>
+          <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">Welcome back, {user?.name ?? ""}</h1>
           <p className="text-muted-foreground mt-1 text-lg">Here is a quick overview of your health since your last check-in.</p>
         </div>
         <div className="flex gap-3">

@@ -73,6 +73,14 @@ export const userController = {
     return ApiResponse.success(res, result, 'Password updated successfully');
   }),
 
+  setTwoFactor: asyncHandler(async (req, res) => {
+    const result = await userService.setTwoFactor(
+      req.user.id,
+      Boolean(req.body.enabled)
+    );
+    return ApiResponse.success(res, result, '2FA preference updated');
+  }),
+
   getUserAnalytics: asyncHandler(async (req, res) => {
     const analytics = await userService.getUserAnalytics(req.user.id);
     return ApiResponse.success(res, analytics, 'Analytics fetched successfully');

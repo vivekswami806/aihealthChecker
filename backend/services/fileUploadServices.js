@@ -6,22 +6,22 @@ import logger from '../config/logger.js';
 import { AppError } from '../middleware/errorHandler.js';
 import cloudinary from 'cloudinary';
 
-// Configure Cloudinary
 cloudinary.v2.config({
   cloud_name: config.cloudinary.cloudName,
   api_key: config.cloudinary.apiKey,
   api_secret: config.cloudinary.apiSecret,
 });
 
-// Configure multer for file storage
 const storage = multer.memoryStorage();
 
 const fileFilter = (req, file, cb) => {
   const allowedMimes = config.fileUpload.allowedMimes;
   const fileExt = path.extname(file.originalname).toLowerCase().slice(1);
 
-  if (allowedMimes.includes(file.mimetype) && 
-      config.fileUpload.allowedExtensions.includes(fileExt)) {
+  if (
+    allowedMimes.includes(file.mimetype) &&
+    config.fileUpload.allowedExtensions.includes(fileExt)
+  ) {
     cb(null, true);
   } else {
     cb(new AppError('Invalid file type', 400));
@@ -34,10 +34,28 @@ export const uploadMiddleware = multer({
   fileFilter,
 });
 
+export function extractCloudinaryPublicId(fileUrl) {
+  if (!fileUrl) return null;
+  try {
+    const uploadIndex = fileUrl.indexOf('/upload/');
+    if (uploadIndex === -1) return null;
+    let pathPart = fileUrl.slice(uploadIndex + '/upload/'.length);
+    pathPart = pathPart.replace(/^v\d+\//, '');
+    pathPart = pathPart.split('?')[0];
+    return pathPart.replace(/\.[^/.]+$/, '');
+  } catch {
+    return null;
+  }
+}
+
 export class FileUploadService {
   async uploadToCloudinary(file, userId) {
+    if (!config.cloudinary.cloudName || !config.cloudinary.apiKey) {
+      throw new AppError('Cloudinary is not configured', 500);
+    }
+
     try {
-      return new Promise((resolve, reject) => {
+      return await new Promise((resolve, reject) => {
         const uploadStream = cloudinary.v2.uploader.upload_stream(
           {
             folder: `medical_reports/${userId}`,
@@ -49,7 +67,10 @@ export class FileUploadService {
             if (error) {
               reject(error);
             } else {
-              console.log("----medical_reports", result);
+              logger.info('Cloudinary upload success', {
+                publicId: result.public_id,
+                url: result.secure_url,
+              });
               resolve(result);
             }
           }
@@ -63,16 +84,27 @@ export class FileUploadService {
     }
   }
 
-  async deleteFromCloudinary(publicId) {
+  async deleteFromCloudinary(publicIdOrUrl) {
     try {
-      return new Promise((resolve, reject) => {
-        cloudinary.v2.uploader.destroy(publicId, (error, result) => {
-          if (error) {
-            reject(error);
-          } else {
-            resolve(result);
+      const publicId =
+        publicIdOrUrl?.includes('http')
+          ? extractCloudinaryPublicId(publicIdOrUrl)
+          : publicIdOrUrl;
+
+      if (!publicId) {
+        logger.warn('No Cloudinary public id to delete');
+        return null;
+      }
+
+      return await new Promise((resolve, reject) => {
+        cloudinary.v2.uploader.destroy(
+          publicId,
+          { resource_type: 'image' },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result);
           }
-        });
+        );
       });
     } catch (error) {
       logger.error('Cloudinary delete error:', error);

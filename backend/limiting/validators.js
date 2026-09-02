@@ -76,8 +76,10 @@ export const paginationValidator = [
 
 // Profile update validators
 export const updateProfileValidator = [
+  body('fullName').optional().trim().notEmpty().withMessage('Full name cannot be empty'),
   body('full_name').optional().trim().notEmpty().withMessage('Full name cannot be empty'),
   body('email').optional().isEmail().normalizeEmail().withMessage('Valid email is required'),
+  body('profileImage').optional().isString(),
   handleValidationErrors,
 ];
 

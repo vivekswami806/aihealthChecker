@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { Toaster } from '@/components/ui/sonner';
 import { useSelector } from 'react-redux';
 import { RootState } from './store';
@@ -23,7 +23,6 @@ import ForgotPasswordPage from './pages/auth/ForgotPasswordPage';
 // Dashboard Pages
 import DashboardHome from './pages/dashboard/DashboardHome';
 import UploadReport from './pages/dashboard/UploadReport';
-import AIAnalysisResult from './pages/dashboard/AIAnalysisResult';
 import MedicalHistory from './pages/dashboard/MedicalHistory';
 import HealthTimeline from './pages/dashboard/HealthTimeline';
 import AIHealthAssistant from './pages/dashboard/AIHealthAssistant';
@@ -32,16 +31,19 @@ import UserSettings from './pages/dashboard/UserSettings';
 import OAuthCallback from './pages/auth/OAuthCallback';
 import AnalysisResult from './pages/dashboard/AnalysisResult';
 
-// Protected Route Component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
-  // For demo purposes, we can allow access or use a mock auth state
-  // Let's default to allowing it for now so the user can see the dashboard
-  const isDemo = true;
-  if (!isAuthenticated && !isDemo) {
+  const hasToken = !!localStorage.getItem('accessToken');
+
+  if (!isAuthenticated && !hasToken) {
     return <Navigate to="/auth/login" replace />;
   }
   return <>{children}</>;
+};
+
+const LegacyAnalysisRedirect = () => {
+  const { reportId } = useParams();
+  return <Navigate to={`/dashboard/analysis/${reportId}`} replace />;
 };
 
 export default function App() {
@@ -85,7 +87,7 @@ export default function App() {
         >
           <Route index element={<DashboardHome />} />
           <Route path="upload" element={<UploadReport />} />
-          <Route path="analysis/:id" element={<AIAnalysisResult />} />
+          <Route path="analysis/:id" element={<AnalysisResult />} />
           <Route path="history" element={<MedicalHistory />} />
           <Route path="timeline" element={<HealthTimeline />} />
           <Route path="assistant" element={<AIHealthAssistant />} />
@@ -93,7 +95,8 @@ export default function App() {
           <Route path="settings" element={<UserSettings />} />
         </Route>
 
-          <Route path="/analysis/:reportId" element={<AnalysisResult />} />
+        {/* Legacy upload redirect */}
+        <Route path="/analysis/:reportId" element={<LegacyAnalysisRedirect />} />
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

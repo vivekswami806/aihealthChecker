@@ -21,7 +21,8 @@ router.get('/activity', paginationValidator, userController.getActivity);
 
 // Analytics
 router.get('/analytics', userController.getUserAnalytics);
-router.put('/change-password', authenticate, userController.changePassword);
+router.put('/change-password', userController.changePassword);
+router.patch('/2fa', userController.setTwoFactor);
 
 // Admin routes
 router.get('/admin/users', authorize('admin'), paginationValidator, userController.getAllUsers);

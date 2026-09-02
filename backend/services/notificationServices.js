@@ -3,6 +3,23 @@ import prisma from '../config/database.js';
 import { config } from '../config/index.js';
 import logger from '../config/logger.js';
 
+const NOTIFICATION_TYPE_MAP = {
+  info: 'INFO',
+  INFO: 'INFO',
+  success: 'INFO',
+  SUCCESS: 'INFO',
+  warning: 'WARNING',
+  WARNING: 'WARNING',
+  alert: 'ALERT',
+  ALERT: 'ALERT',
+  reminder: 'REMINDER',
+  REMINDER: 'REMINDER',
+};
+
+function normalizeNotificationType(type) {
+  return NOTIFICATION_TYPE_MAP[type] || 'INFO';
+}
+
 // Configure email transporter
 const transporter = nodemailer.createTransport({
   host: config.smtp.host,
@@ -30,15 +47,14 @@ export class NotificationService {
     }
   }
 
-  async createInAppNotification(userId, title, message, type = 'info', actionUrl = null) {
+  async createInAppNotification(userId, title, message, type = 'INFO') {
     try {
       const notification = await prisma.notification.create({
         data: {
-          user_id: userId,
+          userId,
           title,
           message,
-          type,
-          action_url: actionUrl,
+          type: normalizeNotificationType(type),
         },
       });
       logger.info(`In-app notification created for user: ${userId}`);
@@ -52,24 +68,21 @@ export class NotificationService {
   async notifyReportAnalysisComplete(userId, reportName, analysisId) {
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: { email: true, full_name: true },
+      select: { email: true, fullName: true },
     });
 
     if (!user) return;
 
-    // Create in-app notification
     await this.createInAppNotification(
       userId,
       'Report Analysis Complete',
       `Your medical report "${reportName}" has been analyzed successfully.`,
-      'success',
-      `/dashboard/analysis/${analysisId}`
+      'INFO'
     );
 
-    // Send email
     const emailHtml = `
       <h2>Report Analysis Complete</h2>
-      <p>Hi ${user.full_name},</p>
+      <p>Hi ${user.fullName},</p>
       <p>Your medical report "<strong>${reportName}</strong>" has been successfully analyzed by our AI system.</p>
       <p>
         <a href="${config.FRONTEND_URL}/dashboard/analysis/${analysisId}" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
@@ -89,23 +102,21 @@ export class NotificationService {
   async notifyHealthAlert(userId, alertType, message) {
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: { email: true, full_name: true },
+      select: { email: true, fullName: true },
     });
 
     if (!user) return;
 
-    // Create in-app notification
     await this.createInAppNotification(
       userId,
       'Health Alert',
       message,
-      'alert'
+      'ALERT'
     );
 
-    // Send email
     const emailHtml = `
       <h2>Health Alert</h2>
-      <p>Hi ${user.full_name},</p>
+      <p>Hi ${user.fullName},</p>
       <p><strong>${message}</strong></p>
       <p>Please consult with your healthcare provider for proper guidance.</p>
       <p>Best regards,<br>Medical Report Team</p>
@@ -117,7 +128,7 @@ export class NotificationService {
   async notifyRecurringDisease(userId, diseaseName) {
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: { email: true, full_name: true },
+      select: { email: true, fullName: true },
     });
 
     if (!user) return;
@@ -128,12 +139,12 @@ export class NotificationService {
       userId,
       'Disease Recurrence Detected',
       message,
-      'warning'
+      'WARNING'
     );
 
     const emailHtml = `
       <h2>Disease Recurrence Alert</h2>
-      <p>Hi ${user.full_name},</p>
+      <p>Hi ${user.fullName},</p>
       <p>${message}</p>
       <p>Please schedule an appointment with your healthcare provider as soon as possible.</p>
       <p>Best regards,<br>Medical Report Team</p>
@@ -145,24 +156,21 @@ export class NotificationService {
   async notifyReportUpload(userId, reportName) {
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: { email: true, full_name: true },
+      select: { email: true, fullName: true },
     });
 
     if (!user) return;
 
-    // Create in-app notification
     await this.createInAppNotification(
       userId,
       'Report Uploaded',
       `Your report "${reportName}" has been uploaded and is being processed.`,
-      'info',
-      '/dashboard/reports'
+      'INFO'
     );
 
-    // Send email
     const emailHtml = `
       <h2>Report Uploaded Successfully</h2>
-      <p>Hi ${user.full_name},</p>
+      <p>Hi ${user.fullName},</p>
       <p>Your medical report "<strong>${reportName}</strong>" has been uploaded successfully.</p>
       <p>We will analyze it and notify you once the analysis is complete.</p>
       <p>
@@ -179,7 +187,7 @@ export class NotificationService {
   async sendSubscriptionExpiry(userId) {
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: { email: true, full_name: true },
+      select: { email: true, fullName: true },
     });
 
     if (!user) return;
@@ -188,12 +196,12 @@ export class NotificationService {
       userId,
       'Subscription Expiring Soon',
       'Your premium subscription will expire in 7 days. Renew now to continue enjoying premium features.',
-      'reminder'
+      'REMINDER'
     );
 
     const emailHtml = `
       <h2>Subscription Expiring Soon</h2>
-      <p>Hi ${user.full_name},</p>
+      <p>Hi ${user.fullName},</p>
       <p>Your premium subscription will expire in 7 days.</p>
       <p>
         <a href="${config.FRONTEND_URL}/dashboard/subscription" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
@@ -209,7 +217,7 @@ export class NotificationService {
   async sendHealthReminder(userId) {
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: { email: true, full_name: true },
+      select: { email: true, fullName: true },
     });
 
     if (!user) return;
@@ -218,12 +226,12 @@ export class NotificationService {
       userId,
       'Weekly Health Check-in',
       'Time for your weekly health check-in. Upload your recent health metrics.',
-      'reminder'
+      'REMINDER'
     );
 
     const emailHtml = `
       <h2>Weekly Health Check-in</h2>
-      <p>Hi ${user.full_name},</p>
+      <p>Hi ${user.fullName},</p>
       <p>It's time for your weekly health check-in. Please upload your recent health metrics to keep your health profile updated.</p>
       <p>
         <a href="${config.FRONTEND_URL}/dashboard/upload" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
@@ -241,22 +249,15 @@ export class NotificationService {
 
     const [notifications, total] = await Promise.all([
       prisma.notification.findMany({
-        where: { user_id: userId },
+        where: { userId },
         skip,
         take: limit,
-        orderBy: { created_at: 'desc' },
+        orderBy: { createdAt: 'desc' },
       }),
-      prisma.notification.count({ where: { user_id: userId } }),
+      prisma.notification.count({ where: { userId } }),
     ]);
 
     return { notifications, total, page, limit };
-  }
-
-  async markAsRead(notificationId, userId) {
-    return prisma.notification.update({
-      where: { id: notificationId },
-      data: { is_read: true },
-    });
   }
 
   async markAsRead(notificationId, userId) {
@@ -265,19 +266,32 @@ export class NotificationService {
         id: notificationId,
         userId,
       },
-      data: { is_read: true },
+      data: { isRead: true },
     });
   }
 
-  async deleteNotification(notificationId) {
-    return prisma.notification.delete({
-      where: { id: notificationId },
+  async markAllAsRead(userId) {
+    return prisma.notification.updateMany({
+      where: {
+        userId,
+        isRead: false,
+      },
+      data: { isRead: true },
+    });
+  }
+
+  async deleteNotification(notificationId, userId) {
+    return prisma.notification.deleteMany({
+      where: {
+        id: notificationId,
+        ...(userId ? { userId } : {}),
+      },
     });
   }
 
   async getUnreadCount(userId) {
     return prisma.notification.count({
-      where: { user_id: userId, is_read: false },
+      where: { userId, isRead: false },
     });
   }
 }
