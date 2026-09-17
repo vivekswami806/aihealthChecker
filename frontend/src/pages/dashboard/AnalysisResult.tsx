@@ -95,18 +95,36 @@ export default function AnalysisResult() {
         setIsLoading(true);
         setError(null);
         const token = localStorage.getItem('accessToken');
+        const headers = { Authorization: `Bearer ${token}` };
 
-        const response = await axios.post(
+        // Start analysis (may return COMPLETED immediately or PROCESSING + 202)
+        const startRes = await axios.post(
           `${API_URL}/ai/${reportId}/analyze`,
           {},
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
+          { headers }
         );
 
-        const payload = response.data?.data;
+        let payload = startRes.data?.data;
+
+        // Poll until COMPLETED or FAILED when queued
+        if (payload?.status === 'PROCESSING' || startRes.status === 202) {
+          const maxAttempts = 60;
+          for (let i = 0; i < maxAttempts; i++) {
+            await new Promise((r) => setTimeout(r, 2500));
+            const statusRes = await axios.get(`${API_URL}/ai/${reportId}/status`, {
+              headers,
+            });
+            payload = statusRes.data?.data;
+
+            if (payload?.status === 'COMPLETED' && payload?.analysis) break;
+            if (payload?.status === 'FAILED') {
+              throw new Error(
+                'Analysis failed. The AI could not produce a valid result — please retry with a clearer document.'
+              );
+            }
+          }
+        }
+
         if (!payload?.analysis) {
           throw new Error('Analysis data missing from response');
         }
@@ -137,7 +155,7 @@ export default function AnalysisResult() {
           <Loader2 className="h-12 w-12 text-primary" />
           <p className="text-lg font-semibold">Analyzing your report...</p>
           <p className="text-sm text-muted-foreground">
-            AI is processing your medical data
+            Extracting text → indexing in vector DB → AI analysis
           </p>
         </motion.div>
       </div>

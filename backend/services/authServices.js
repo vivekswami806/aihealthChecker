@@ -50,7 +50,7 @@ export class AuthService {
       null
     );
 
-    logger.info(`User registered: ${email}`);
+    console.log(`User registered: ${email}`);
 
     return {
       user: {
@@ -88,7 +88,7 @@ export class AuthService {
       null
     );
 
-    logger.info(`User logged in: ${email}`);
+    console.log(`User logged in: ${email}`);
 
     return {
       user: {
@@ -135,7 +135,7 @@ export class AuthService {
       await userRepository.deleteAllUserSessions(userId);
     }
 
-    logger.info(`User logged out: ${userId}`);
+    console.log(`User logged out: ${userId}`);
     return { message: 'Logged out successfully' };
   }
 

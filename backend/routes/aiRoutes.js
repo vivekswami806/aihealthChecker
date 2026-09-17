@@ -7,6 +7,7 @@ const router = Router();
 router.use(authenticate);
 
 router.get('/history', aiAnalysisController.getAnalysisHistory);
+router.get('/:reportId/status', aiAnalysisController.getAnalysisStatus);
 router.post('/:reportId/analyze', aiAnalysisController.analyzeReport);
 router.get('/report/:reportId', aiAnalysisController.getAnalysisByReport);
 router.get('/:id', aiAnalysisController.getAnalysis);

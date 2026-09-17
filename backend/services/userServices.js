@@ -27,7 +27,7 @@ export class UserService {
     }
 
     const user = await userRepository.update(userId, allowed);
-    logger.info(`Profile updated for user: ${userId}`);
+    console.log(`Profile updated for user: ${userId}`);
 
     return {
       id: user.id,
@@ -51,16 +51,113 @@ export class UserService {
   }
 
   async getDashboard(userId) {
-    const [profile, reportStats, recentReports] = await Promise.all([
+    const [
+      profile,
+      reportStats,
+      recentReports,
+      latestScore,
+      healthScores,
+      diseases,
+      latestAnalyses,
+      unreadNotifications,
+    ] = await Promise.all([
       userRepository.findById(userId),
       reportRepository.getReportStatistics(userId),
-      reportRepository.getRecentReports(userId, 30, 5),
+      reportRepository.getRecentReports(userId, 90, 8),
+      prisma.healthScore.findFirst({
+        where: { userId },
+        orderBy: { calculatedAt: 'desc' },
+      }),
+      prisma.healthScore.findMany({
+        where: { userId },
+        orderBy: { calculatedAt: 'asc' },
+        take: 12,
+      }),
+      prisma.diseaseHistory.findMany({
+        where: { userId },
+        orderBy: { lastDetected: 'desc' },
+        take: 5,
+      }),
+      prisma.aIAnalysis.findMany({
+        where: { report: { userId } },
+        orderBy: { generatedAt: 'desc' },
+        take: 3,
+        include: {
+          report: {
+            select: { id: true, reportName: true, uploadDate: true },
+          },
+        },
+      }),
+      prisma.notification.count({
+        where: { userId, isRead: false },
+      }),
     ]);
+
+    const chartData = healthScores.map((s) => ({
+      name: new Date(s.calculatedAt).toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+      }),
+      score: s.score,
+      glucose: s.sugarLevel ?? null,
+      bp: s.bloodPressure
+        ? Number(String(s.bloodPressure).split('/')[0]) || null
+        : null,
+    }));
+
+    // Build dynamic AI insights from real analyses
+    const insights = latestAnalyses.map((a) => ({
+      id: a.id,
+      reportId: a.reportId,
+      reportName: a.report?.reportName,
+      disease: a.diseaseDetected,
+      severity: a.severity,
+      riskScore: a.riskScore,
+      summary: a.aiSummary?.slice(0, 180),
+      doctorRecommendation: a.doctorRecommendation?.slice(0, 120),
+      generatedAt: a.generatedAt,
+    }));
+
+    const previousScore =
+      healthScores.length > 1 ? healthScores[healthScores.length - 2]?.score : null;
+    const scoreTrend =
+      latestScore && previousScore != null
+        ? Number((latestScore.score - previousScore).toFixed(1))
+        : null;
 
     return {
       profile,
       reportStats,
-      recentReports,
+      recentReports: recentReports.map((r) => ({
+        id: r.id,
+        name: r.reportName,
+        date: r.uploadDate,
+        type: r.reportType || r.mimeType,
+        status: r.reportStatus,
+        disease: r.aiAnalysis?.diseaseDetected || null,
+        riskScore: r.aiAnalysis?.riskScore ?? null,
+        severity: r.aiAnalysis?.severity || null,
+      })),
+      healthScore: latestScore
+        ? {
+            score: latestScore.score,
+            bmi: latestScore.bmi,
+            bloodPressure: latestScore.bloodPressure,
+            sugarLevel: latestScore.sugarLevel,
+            cholesterolLevel: latestScore.cholesterolLevel,
+            calculatedAt: latestScore.calculatedAt,
+            trend: scoreTrend,
+          }
+        : null,
+      chartData,
+      diseases,
+      insights,
+      unreadNotifications,
+      suggestion:
+        insights[0]?.doctorRecommendation ||
+        (latestScore
+          ? 'Keep uploading reports regularly to track your health trends.'
+          : 'Upload your first medical report to get personalized AI insights.'),
     };
   }
 
@@ -133,7 +230,7 @@ export class UserService {
     // Persist preference lightly via isVerified flag placeholder is wrong;
     // store in profileImage metadata is also wrong. Use a soft response for now
     // until a dedicated column exists — keep API stable for frontend.
-    logger.info(`2FA toggle requested for ${userId}: ${enabled}`);
+    console.log(`2FA toggle requested for ${userId}: ${enabled}`);
     return { enabled: Boolean(enabled), message: '2FA preference saved' };
   }
 }

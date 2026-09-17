@@ -85,6 +85,7 @@ model User {
   updatedAt DateTime @updatedAt
 
   medicalReports    MedicalReport[]
+  documentChunks    ReportDocumentChunk[]
   diseaseHistories  DiseaseHistory[]
   notifications     Notification[]
   healthScores      HealthScore[]
@@ -116,6 +117,7 @@ model MedicalReport {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   aiAnalysis     AIAnalysis?
+  documentChunks ReportDocumentChunk[]
   oldComparisons ReportComparison[] @relation("OldReport")
   newComparisons ReportComparison[] @relation("NewReport")
 
@@ -146,6 +148,27 @@ model AIAnalysis {
 
   @@index([severity])
   @@map("ai_analyses")
+}
+
+model ReportDocumentChunk {
+  id       String @id @default(uuid())
+  reportId String
+  userId   String
+
+  chunkIndex Int
+  content    String @db.Text
+  embedding  Json
+
+  tokenCount Int?
+
+  createdAt DateTime @default(now())
+
+  report MedicalReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  user   User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([reportId])
+  @@index([userId])
+  @@map("report_document_chunks")
 }
 
 model DiseaseHistory {

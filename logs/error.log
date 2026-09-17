@@ -1,471 +1,9 @@
-2026-08-16 12:01:33 [ERROR]: Notification creation error: 
-Invalid `prisma.notification.create()` invocation:
-
-{
-  data: {
-    user_id: "0f65d0ee-a84d-4c21-870d-8de309801f4a",
-    title: "Report Uploaded",
-    message: "Your report \"WhatsApp Image 2026-08-06 at 10.22.17 AM.jpeg\" has been uploaded and is being processed.",
-    type: "INFO",
-    action_url: null,
-+   user: {
-+     create: UserCreateWithoutNotificationsInput | UserUncheckedCreateWithoutNotificationsInput,
-+     connectOrCreate: UserCreateOrConnectWithoutNotificationsInput,
-+     connect: UserWhereUniqueInput
-+   }
-  }
-}
-
-Argument `user` is missing. {
-  "service": "medical-backend",
-  "name": "PrismaClientValidationError",
-  "clientVersion": "5.22.0"
-}
-PrismaClientValidationError: 
-Invalid `prisma.notification.create()` invocation:
-
-{
-  data: {
-    user_id: "0f65d0ee-a84d-4c21-870d-8de309801f4a",
-    title: "Report Uploaded",
-    message: "Your report \"WhatsApp Image 2026-08-06 at 10.22.17 AM.jpeg\" has been uploaded and is being processed.",
-    type: "INFO",
-    action_url: null,
-+   user: {
-+     create: UserCreateWithoutNotificationsInput | UserUncheckedCreateWithoutNotificationsInput,
-+     connectOrCreate: UserCreateOrConnectWithoutNotificationsInput,
-+     connect: UserWhereUniqueInput
-+   }
-  }
-}
-
-Argument `user` is missing.
-    at wn (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:29:1363)
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6958)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async NotificationService.createInAppNotification (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/notificationServices.js:35:28)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/reportController.js:22:5
-2026-08-16 12:01:33 [ERROR]: 
-Invalid `prisma.notification.create()` invocation:
-
-{
-  data: {
-    user_id: "0f65d0ee-a84d-4c21-870d-8de309801f4a",
-    title: "Report Uploaded",
-    message: "Your report \"WhatsApp Image 2026-08-06 at 10.22.17 AM.jpeg\" has been uploaded and is being processed.",
-    type: "INFO",
-    action_url: null,
-+   user: {
-+     create: UserCreateWithoutNotificationsInput | UserUncheckedCreateWithoutNotificationsInput,
-+     connectOrCreate: UserCreateOrConnectWithoutNotificationsInput,
-+     connect: UserWhereUniqueInput
-+   }
-  }
-}
-
-Argument `user` is missing. {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/reports/upload",
-  "method": "POST"
-}
-PrismaClientValidationError: 
-Invalid `prisma.notification.create()` invocation:
-
-{
-  data: {
-    user_id: "0f65d0ee-a84d-4c21-870d-8de309801f4a",
-    title: "Report Uploaded",
-    message: "Your report \"WhatsApp Image 2026-08-06 at 10.22.17 AM.jpeg\" has been uploaded and is being processed.",
-    type: "INFO",
-    action_url: null,
-+   user: {
-+     create: UserCreateWithoutNotificationsInput | UserUncheckedCreateWithoutNotificationsInput,
-+     connectOrCreate: UserCreateOrConnectWithoutNotificationsInput,
-+     connect: UserWhereUniqueInput
-+   }
-  }
-}
-
-Argument `user` is missing.
-    at wn (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:29:1363)
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6958)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async NotificationService.createInAppNotification (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/notificationServices.js:35:28)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/reportController.js:22:5
-2026-08-16 12:15:46 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "reportId": "3db480ef-f15d-45d9-beda-f8d2acd162e2"
-}
-2026-08-16 12:15:46 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/3db480ef-f15d-45d9-beda-f8d2acd162e2/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:291:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:16:18
-2026-08-16 12:15:46 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "reportId": "3db480ef-f15d-45d9-beda-f8d2acd162e2"
-}
-2026-08-16 12:15:46 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/3db480ef-f15d-45d9-beda-f8d2acd162e2/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:291:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:16:18
-2026-08-16 12:43:43 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "reportId": "1ddd0142-0c22-48a0-83ef-2a5ea7b60909"
-}
-2026-08-16 12:43:43 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/1ddd0142-0c22-48a0-83ef-2a5ea7b60909/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 12:43:43 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "reportId": "1ddd0142-0c22-48a0-83ef-2a5ea7b60909"
-}
-2026-08-16 12:43:44 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/1ddd0142-0c22-48a0-83ef-2a5ea7b60909/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 12:48:43 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "b12a2504-30fd-4e56-92ac-1f1245d36ba7"
-}
-2026-08-16 12:48:43 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/b12a2504-30fd-4e56-92ac-1f1245d36ba7/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 12:48:45 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "b12a2504-30fd-4e56-92ac-1f1245d36ba7"
-}
-2026-08-16 12:48:45 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/b12a2504-30fd-4e56-92ac-1f1245d36ba7/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 12:54:02 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "6ea34d97-aaaf-4e07-96a3-c408b45d4399"
-}
-2026-08-16 12:54:02 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/6ea34d97-aaaf-4e07-96a3-c408b45d4399/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 12:58:49 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "6ea34d97-aaaf-4e07-96a3-c408b45d4399"
-}
-2026-08-16 12:58:49 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/6ea34d97-aaaf-4e07-96a3-c408b45d4399/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 12:59:15 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "e0668350-6573-4c3e-aeec-f84ae08e5465"
-}
-2026-08-16 12:59:15 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/e0668350-6573-4c3e-aeec-f84ae08e5465/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 12:59:50 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "e0668350-6573-4c3e-aeec-f84ae08e5465"
-}
-2026-08-16 12:59:51 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/e0668350-6573-4c3e-aeec-f84ae08e5465/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 13:03:10 [ERROR]: 
-Invalid `prisma.aiAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "reportId": "e0668350-6573-4c3e-aeec-f84ae08e5465"
-}
-2026-08-16 13:03:10 [ERROR]: AI Analysis failed: 
-Invalid `prisma.aiAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/e0668350-6573-4c3e-aeec-f84ae08e5465/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: 
-Invalid `prisma.aiAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`)
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 13:03:25 [ERROR]: 
-Invalid `prisma.aiAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "reportId": "88ff1b09-726d-45d7-a344-95a472492ac9"
-}
-2026-08-16 13:03:25 [ERROR]: AI Analysis failed: 
-Invalid `prisma.aiAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/88ff1b09-726d-45d7-a344-95a472492ac9/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: 
-Invalid `prisma.aiAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`)
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 13:56:20 [ERROR]: Authentication error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "name": "PrismaClientKnownRequestError",
-  "code": "P1001",
-  "clientVersion": "5.22.0",
-  "meta": {
-    "modelName": "User",
-    "database_host": "db.prisma.io",
-    "database_port": 5432
-  }
-}
-PrismaClientKnownRequestError: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 13:56:20 [ERROR]: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "statusCode": 401,
-  "path": "/api/notifications/unread/count",
-  "method": "GET"
-}
-Error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
-2026-08-16 13:58:20 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "ae4f322a-4ac7-468a-ac40-b27037ac7c9b"
-}
-2026-08-16 13:58:21 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/ae4f322a-4ac7-468a-ac40-b27037ac7c9b/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 13:58:52 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "ae4f322a-4ac7-468a-ac40-b27037ac7c9b"
-}
-2026-08-16 13:58:53 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/ae4f322a-4ac7-468a-ac40-b27037ac7c9b/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 14:04:47 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/9008a127-dd51-443d-ac8c-6cdc1a3d2a95/analyze",
-  "method": "POST"
-}
-TypeError: Cannot read properties of undefined (reading 'findUnique')
-    at ComparisonService.compareWithPrevious (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/comparisonServices.js:89:48)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:47:24
-2026-08-16 14:07:46 [ERROR]: 
-Invalid `prisma.aIAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "reportId": "9008a127-dd51-443d-ac8c-6cdc1a3d2a95"
-}
-2026-08-16 14:07:46 [ERROR]: AI Analysis failed: 
-Invalid `prisma.aIAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/9008a127-dd51-443d-ac8c-6cdc1a3d2a95/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: 
-Invalid `prisma.aIAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`)
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 14:09:27 [ERROR]: 
-Invalid `prisma.aIAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "reportId": "e770491f-f1a4-489d-ba9b-2cdfd6f3ec97"
-}
-2026-08-16 14:09:28 [ERROR]: AI Analysis failed: 
-Invalid `prisma.aIAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/e770491f-f1a4-489d-ba9b-2cdfd6f3ec97/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: 
-Invalid `prisma.aIAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`)
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 14:15:23 [ERROR]: Authentication error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "name": "PrismaClientKnownRequestError",
-  "code": "P1001",
-  "clientVersion": "5.22.0",
-  "meta": {
-    "modelName": "User",
-    "database_host": "db.prisma.io",
-    "database_port": 5432
-  }
-}
-PrismaClientKnownRequestError: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 14:15:23 [ERROR]: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "statusCode": 401,
-  "path": "/api/reports/upload",
-  "method": "POST"
-}
-Error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
-2026-08-16 14:17:17 [ERROR]: 
+2026-09-02 15:08:29 [ERROR]: 
 Invalid `prisma.medicalReport.findUnique()` invocation:
 
 {
   where: {
-    id: "7ff0a2bc-b8cc-4b04-9956-c1a8ed128a5d"
+    id: "6e82bd96-de82-4d23-82d5-4c6ba898d99f"
   },
   include: {
     aIAnalysis: true,
@@ -480,7 +18,7 @@ Invalid `prisma.medicalReport.findUnique()` invocation:
 Unknown field `aIAnalysis` for include statement on model `MedicalReport`. Available options are marked with ?. {
   "service": "medical-backend",
   "statusCode": 500,
-  "path": "/api/ai/8397ec32-c7d8-42e7-87be-98a449fc5edb/analyze",
+  "path": "/api/ai/5a0d9fbc-3040-445e-97e3-d13856cd0955/analyze",
   "method": "POST"
 }
 PrismaClientValidationError: 
@@ -488,7 +26,7 @@ Invalid `prisma.medicalReport.findUnique()` invocation:
 
 {
   where: {
-    id: "7ff0a2bc-b8cc-4b04-9956-c1a8ed128a5d"
+    id: "6e82bd96-de82-4d23-82d5-4c6ba898d99f"
   },
   include: {
     aIAnalysis: true,
@@ -507,13 +45,13 @@ Unknown field `aIAnalysis` for include statement on model `MedicalReport`. Avail
     at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
     at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
     at async ComparisonService.compareReports (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/comparisonServices.js:18:23)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:47:24
-2026-08-16 14:17:59 [ERROR]: 
+    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:43:24
+2026-09-02 15:09:48 [ERROR]: 
 Invalid `prisma.medicalReport.findUnique()` invocation:
 
 {
   where: {
-    id: "7ff0a2bc-b8cc-4b04-9956-c1a8ed128a5d"
+    id: "6e82bd96-de82-4d23-82d5-4c6ba898d99f"
   },
   include: {
     aIAnalysis: true,
@@ -528,7 +66,7 @@ Invalid `prisma.medicalReport.findUnique()` invocation:
 Unknown field `aIAnalysis` for include statement on model `MedicalReport`. Available options are marked with ?. {
   "service": "medical-backend",
   "statusCode": 500,
-  "path": "/api/ai/8397ec32-c7d8-42e7-87be-98a449fc5edb/analyze",
+  "path": "/api/ai/5a0d9fbc-3040-445e-97e3-d13856cd0955/analyze",
   "method": "POST"
 }
 PrismaClientValidationError: 
@@ -536,7 +74,7 @@ Invalid `prisma.medicalReport.findUnique()` invocation:
 
 {
   where: {
-    id: "7ff0a2bc-b8cc-4b04-9956-c1a8ed128a5d"
+    id: "6e82bd96-de82-4d23-82d5-4c6ba898d99f"
   },
   include: {
     aIAnalysis: true,
@@ -555,94 +93,78 @@ Unknown field `aIAnalysis` for include statement on model `MedicalReport`. Avail
     at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
     at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
     at async ComparisonService.compareReports (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/comparisonServices.js:18:23)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:47:24
-2026-08-16 14:19:25 [ERROR]: 
-Invalid `prisma.medicalReport.findUnique()` invocation:
-
-{
-  where: {
-    id: "8397ec32-c7d8-42e7-87be-98a449fc5edb"
-  },
-  include: {
-    aIAnalysis: true,
-    ~~~~~~~~~~
-?   user?: true,
-?   aiAnalysis?: true,
-?   oldComparisons?: true,
-?   newComparisons?: true
-  }
+    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:43:24
+2026-09-02 15:22:00 [ERROR]: Request failed with status code 401 {
+  "service": "medical-backend",
+  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1788342717/medical_reports/44a089c0-9c13-4b00-acf7-798ac18cc193/1788342714478-97a00959-4af4-4d21-9cb9-76f24db4e415.pdf"
 }
-
-Unknown field `aIAnalysis` for include statement on model `MedicalReport`. Available options are marked with ?. {
+2026-09-02 15:22:10 [ERROR]: Request failed with status code 401 {
+  "service": "medical-backend",
+  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1788342717/medical_reports/44a089c0-9c13-4b00-acf7-798ac18cc193/1788342714478-97a00959-4af4-4d21-9cb9-76f24db4e415.pdf"
+}
+2026-09-02 15:33:43 [ERROR]: Request failed with status code 401 {
+  "service": "medical-backend",
+  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1788343420/medical_reports/44a089c0-9c13-4b00-acf7-798ac18cc193/1788343417144-a3498087-7cb6-422a-8a92-538e10fe3a51.pdf"
+}
+2026-09-02 15:33:43 [ERROR]: Could not extract readable text from this document. Please upload a clearer PDF or text-based report. {
+  "service": "medical-backend",
+  "reportId": "cfc13be0-464b-4332-9e62-84961c09dda3"
+}
+2026-09-02 15:33:44 [ERROR]: Could not extract readable text from this document. Please upload a clearer PDF or text-based report. {
+  "service": "medical-backend",
+  "statusCode": 422,
+  "path": "/api/ai/cfc13be0-464b-4332-9e62-84961c09dda3/analyze",
+  "method": "POST"
+}
+Error: Could not extract readable text from this document. Please upload a clearer PDF or text-based report.
+    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:75:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:35:22
+2026-09-02 15:34:02 [ERROR]: Request failed with status code 401 {
+  "service": "medical-backend",
+  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1788343420/medical_reports/44a089c0-9c13-4b00-acf7-798ac18cc193/1788343417144-a3498087-7cb6-422a-8a92-538e10fe3a51.pdf"
+}
+2026-09-02 15:34:02 [ERROR]: Could not extract readable text from this document. Please upload a clearer PDF or text-based report. {
+  "service": "medical-backend",
+  "reportId": "cfc13be0-464b-4332-9e62-84961c09dda3"
+}
+2026-09-02 15:34:02 [ERROR]: Could not extract readable text from this document. Please upload a clearer PDF or text-based report. {
+  "service": "medical-backend",
+  "statusCode": 422,
+  "path": "/api/ai/cfc13be0-464b-4332-9e62-84961c09dda3/analyze",
+  "method": "POST"
+}
+Error: Could not extract readable text from this document. Please upload a clearer PDF or text-based report.
+    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:75:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:35:22
+2026-09-02 15:54:58 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent: [404 Not Found] models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
+  "service": "medical-backend",
+  "reportId": "4657759c-b502-4173-bc3b-33ebeb2dc2b8"
+}
+2026-09-02 15:54:58 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent: [404 Not Found] models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
   "service": "medical-backend",
   "statusCode": 500,
-  "path": "/api/ai/e3fbaae3-9f3f-43b3-8889-eed09ea25801/analyze",
+  "path": "/api/ai/4657759c-b502-4173-bc3b-33ebeb2dc2b8/analyze",
   "method": "POST"
 }
-PrismaClientValidationError: 
-Invalid `prisma.medicalReport.findUnique()` invocation:
-
-{
-  where: {
-    id: "8397ec32-c7d8-42e7-87be-98a449fc5edb"
-  },
-  include: {
-    aIAnalysis: true,
-    ~~~~~~~~~~
-?   user?: true,
-?   aiAnalysis?: true,
-?   oldComparisons?: true,
-?   newComparisons?: true
-  }
-}
-
-Unknown field `aIAnalysis` for include statement on model `MedicalReport`. Available options are marked with ?.
-    at wn (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:29:1363)
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6958)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async ComparisonService.compareReports (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/comparisonServices.js:18:23)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:47:24
-2026-08-16 14:20:12 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 47.179582888s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"47s"}] {
+Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent: [404 Not Found] models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ModelService.ListModels to see the list of available models and their supported methods.
+    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:164:13)
+    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:35:22
+2026-09-02 15:56:12 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent: [404 Not Found] models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
   "service": "medical-backend",
-  "reportId": "e3fbaae3-9f3f-43b3-8889-eed09ea25801"
+  "reportId": "4657759c-b502-4173-bc3b-33ebeb2dc2b8"
 }
-2026-08-16 14:20:12 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 47.179582888s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"47s"}] {
+2026-09-02 15:56:13 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent: [404 Not Found] models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
   "service": "medical-backend",
   "statusCode": 500,
-  "path": "/api/ai/e3fbaae3-9f3f-43b3-8889-eed09ea25801/analyze",
+  "path": "/api/ai/4657759c-b502-4173-bc3b-33ebeb2dc2b8/analyze",
   "method": "POST"
 }
-Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 47.179582888s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"47s"}]
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:195:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 14:28:48 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 10.56196467s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"10s"}] {
-  "service": "medical-backend",
-  "reportId": "e3fbaae3-9f3f-43b3-8889-eed09ea25801"
-}
-2026-08-16 14:28:48 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 10.56196467s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"10s"}] {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/e3fbaae3-9f3f-43b3-8889-eed09ea25801/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 10.56196467s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"10s"}]
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:195:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 14:59:54 [ERROR]: Authentication error: 
+Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent: [404 Not Found] models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ModelService.ListModels to see the list of available models and their supported methods.
+    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:164:13)
+    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:35:22
+2026-09-02 17:42:41 [ERROR]: Authentication error: 
 Invalid `prisma.user.findUnique()` invocation:
 
 
@@ -671,7 +193,7 @@ Please make sure your database server is running at `db.prisma.io:5432`.
     at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
     at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
     at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 14:59:54 [ERROR]: 
+2026-09-02 17:42:41 [ERROR]: 
 Invalid `prisma.user.findUnique()` invocation:
 
 
@@ -680,7 +202,7 @@ Can't reach database server at `db.prisma.io:5432`
 Please make sure your database server is running at `db.prisma.io:5432`. {
   "service": "medical-backend",
   "statusCode": 401,
-  "path": "/api/ai/e3fbaae3-9f3f-43b3-8889-eed09ea25801/analyze",
+  "path": "/api/ai/15ec4b93-79b7-43fc-bc83-4cb4191cec77/analyze",
   "method": "POST"
 }
 Error: 
@@ -691,7 +213,7 @@ Can't reach database server at `db.prisma.io:5432`
 
 Please make sure your database server is running at `db.prisma.io:5432`.
     at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
-2026-08-16 14:59:54 [ERROR]: Authentication error: 
+2026-09-02 17:42:41 [ERROR]: Authentication error: 
 Invalid `prisma.user.findUnique()` invocation:
 
 
@@ -720,7 +242,7 @@ Please make sure your database server is running at `db.prisma.io:5432`.
     at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
     at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
     at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 14:59:54 [ERROR]: 
+2026-09-02 17:42:41 [ERROR]: 
 Invalid `prisma.user.findUnique()` invocation:
 
 
@@ -740,7 +262,7 @@ Can't reach database server at `db.prisma.io:5432`
 
 Please make sure your database server is running at `db.prisma.io:5432`.
     at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
-2026-08-16 14:59:54 [ERROR]: Authentication error: 
+2026-09-02 17:42:41 [ERROR]: Authentication error: 
 Invalid `prisma.user.findUnique()` invocation:
 
 
@@ -769,7 +291,7 @@ Please make sure your database server is running at `db.prisma.io:5432`.
     at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
     at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
     at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 14:59:54 [ERROR]: 
+2026-09-02 17:42:41 [ERROR]: 
 Invalid `prisma.user.findUnique()` invocation:
 
 
@@ -789,7 +311,7 @@ Can't reach database server at `db.prisma.io:5432`
 
 Please make sure your database server is running at `db.prisma.io:5432`.
     at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
-2026-08-16 21:12:15 [ERROR]: Authentication error: 
+2026-09-02 17:45:44 [ERROR]: Authentication error: 
 Invalid `prisma.user.findUnique()` invocation:
 
 
@@ -818,7 +340,7 @@ Please make sure your database server is running at `db.prisma.io:5432`.
     at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
     at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
     at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 21:12:15 [ERROR]: 
+2026-09-02 17:45:44 [ERROR]: 
 Invalid `prisma.user.findUnique()` invocation:
 
 
@@ -827,7 +349,7 @@ Can't reach database server at `db.prisma.io:5432`
 Please make sure your database server is running at `db.prisma.io:5432`. {
   "service": "medical-backend",
   "statusCode": 401,
-  "path": "/api/ai/e3fbaae3-9f3f-43b3-8889-eed09ea25801/analyze",
+  "path": "/api/ai/15ec4b93-79b7-43fc-bc83-4cb4191cec77/analyze",
   "method": "POST"
 }
 Error: 
@@ -838,7 +360,7 @@ Can't reach database server at `db.prisma.io:5432`
 
 Please make sure your database server is running at `db.prisma.io:5432`.
     at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
-2026-08-16 21:12:15 [ERROR]: Authentication error: 
+2026-09-02 17:45:44 [ERROR]: Authentication error: 
 Invalid `prisma.user.findUnique()` invocation:
 
 
@@ -867,7 +389,7 @@ Please make sure your database server is running at `db.prisma.io:5432`.
     at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
     at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
     at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 21:12:15 [ERROR]: 
+2026-09-02 17:45:44 [ERROR]: 
 Invalid `prisma.user.findUnique()` invocation:
 
 
@@ -887,7 +409,7 @@ Can't reach database server at `db.prisma.io:5432`
 
 Please make sure your database server is running at `db.prisma.io:5432`.
     at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
-2026-08-16 21:12:15 [ERROR]: Authentication error: 
+2026-09-02 17:45:44 [ERROR]: Authentication error: 
 Invalid `prisma.user.findUnique()` invocation:
 
 
@@ -916,7 +438,7 @@ Please make sure your database server is running at `db.prisma.io:5432`.
     at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
     at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
     at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 21:12:15 [ERROR]: 
+2026-09-02 17:45:44 [ERROR]: 
 Invalid `prisma.user.findUnique()` invocation:
 
 
@@ -936,3 +458,595 @@ Can't reach database server at `db.prisma.io:5432`
 
 Please make sure your database server is running at `db.prisma.io:5432`.
     at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:45:49 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:45:49 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/ai/15ec4b93-79b7-43fc-bc83-4cb4191cec77/analyze",
+  "method": "POST"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:45:49 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:45:49 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:45:49 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:45:49 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:46:04 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:46:04 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/ai/15ec4b93-79b7-43fc-bc83-4cb4191cec77/analyze",
+  "method": "POST"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:46:04 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:46:04 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:46:04 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:46:04 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:46:21 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:46:21 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/ai/15ec4b93-79b7-43fc-bc83-4cb4191cec77/analyze",
+  "method": "POST"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:46:21 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:46:21 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:46:21 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:46:21 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 18:24:53 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 18:24:53 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/ai/15ec4b93-79b7-43fc-bc83-4cb4191cec77/analyze",
+  "method": "POST"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 18:24:53 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 18:24:53 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 18:24:53 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 18:24:53 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-03 11:30:59 [ERROR]: ❌ Database connection failed {
+  "service": "medical-backend",
+  "error": "Can't reach database server at `db.prisma.io:5432`\n\nPlease make sure your database server is running at `db.prisma.io:5432`."
+}

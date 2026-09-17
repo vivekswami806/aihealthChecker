@@ -2,16 +2,35 @@ import reportRepository from '../repositories/reportRepository.js';
 import { AppError } from '../middleware/errorHandler.js';
 import logger from '../config/logger.js';
 import fileUploadService from './fileUploadServices.js';
+import textExtractionService from './textExtractionService.js';
 
 export class ReportService {
   async uploadReport(userId, file, reportName, reportType) {
     fileUploadService.validateFile(file);
 
-    const uploadResult = await fileUploadService.uploadToCloudinary(
-      file,
-      userId
-    );
+    let extractedText = null;
+    try {
+      extractedText = await textExtractionService.extractFromBuffer(
+        file.buffer,
+        reportType || file.mimetype,
+        reportName || file.originalname
+      );
 
+      if (!textExtractionService.isUsableText(extractedText)) {
+        extractedText = null;
+        logger.warn('Upload-time text extraction produced limited text', {
+          reportName,
+          mimeType: file.mimetype,
+        });
+      }
+    } catch (error) {
+      logger.warn('Upload-time text extraction failed, will retry during analysis', {
+        reportName,
+        message: error.message,
+      });
+    }
+
+    const uploadResult = await fileUploadService.uploadToCloudinary(file, userId);
     const report = await reportRepository.create({
       userId,
       reportName,
@@ -19,10 +38,13 @@ export class ReportService {
       fileUrl: uploadResult.secure_url,
       fileSize: uploadResult.bytes,
       mimeType: file.mimetype,
+      extractedText: extractedText
+        ? String(extractedText).substring(0, 12000)
+        : null,
       reportStatus: 'PENDING',
     });
 
-    logger.info(`Report uploaded: ${report.id} for user: ${userId}`);
+    console.log(`Report uploaded: ${report.id} for user: ${userId}`);
 
     return {
       id: report.id,
@@ -65,7 +87,7 @@ export class ReportService {
     }
 
     await reportRepository.delete(reportId);
-    logger.info(`Report deleted: ${reportId}`);
+    console.log(`Report deleted: ${reportId}`);
     return { message: 'Report deleted successfully' };
   }
 

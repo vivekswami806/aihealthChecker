@@ -1,11 +1,10 @@
-import axios from 'axios';
 import { config } from '../config/index.js';
 import { AppError } from '../middleware/errorHandler.js';
 import logger from '../config/logger.js';
 import prisma from '../config/database.js';
-import pdfParse from 'pdf-parse';
-import Tesseract from 'tesseract.js';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import textExtractionService from './textExtractionService.js';
+import ragService from './ragService.js';
 
 const apiKey = config.googleapi.apiKey || config.gemini.apiKey;
 const genAI = apiKey ? new GoogleGenerativeAI(apiKey) : null;
@@ -38,61 +37,74 @@ function asText(value, fallback = 'N/A') {
 }
 
 export class AIAnalysisService {
-  async extractTextFromFile(fileUrl, reportType = '') {
+  async extractTextFromFile(fileUrl, reportType = '', fileName = '') {
     try {
-      logger.info('Extracting text from file', { fileUrl, reportType });
-      const type = (reportType || '').toLowerCase();
-
-      const response = await axios.get(fileUrl, {
-        responseType: 'arraybuffer',
-        timeout: 60000,
-      });
-
-      if (type.includes('pdf') || fileUrl.toLowerCase().includes('.pdf')) {
-        const data = await pdfParse(Buffer.from(response.data));
-        return data.text || 'No text found in PDF';
-      }
-
-      if (
-        type.includes('image') ||
-        /\.(jpg|jpeg|png|webp)(\?|$)/i.test(fileUrl)
-      ) {
-        const result = await Tesseract.recognize(
-          Buffer.from(response.data),
-          'eng',
-          {
-            logger: (m) => logger.debug('OCR progress:', m),
-          }
-        );
-        return result.data.text || 'No text found in image';
-      }
-
-      return 'Unable to extract text from this file type. Providing general guidance.';
+      return await textExtractionService.extractFromUrl(fileUrl, reportType, fileName);
     } catch (error) {
-      logger.error('Text extraction error', { message: error?.message, fileUrl });
-      return 'Unable to extract text. Analysis will proceed with limited information.';
+      logger.error('Text extraction error', {
+        message: error?.message,
+        fileUrl,
+        fileName,
+      });
+      throw error;
     }
   }
 
-  async analyzeWithGeminiGoogle(reportId, userId, extractedText, fileUrl, reportType) {
+  async analyzeWithGeminiGoogle(
+    reportId,
+    userId,
+    extractedText,
+    fileUrl,
+    reportType,
+    reportName = 'Medical Report'
+  ) {
     if (!genAI) {
       throw new AppError('Gemini API key is not configured', 500);
     }
 
     try {
-      logger.info(`Starting Gemini analysis for report: ${reportId}`);
+      logger.info('Starting RAG-based Gemini analysis', { reportId });
 
       await prisma.medicalReport.update({
         where: { id: reportId },
         data: { reportStatus: 'PROCESSING' },
       });
 
-      let textToAnalyze = extractedText;
-      if (!textToAnalyze || textToAnalyze.includes('Medical Report:')) {
-        textToAnalyze = await this.extractTextFromFile(fileUrl, reportType);
+      let documentText = extractedText;
+      if (!textExtractionService.isUsableText(documentText)) {
+        documentText = await this.extractTextFromFile(
+          fileUrl,
+          reportType,
+          reportName
+        );
       }
 
-      const analysisPrompt = this.buildAnalysisPrompt(textToAnalyze);
+      if (!textExtractionService.isUsableText(documentText)) {
+        throw new AppError(
+          `Could not extract readable text from this document. ${textExtractionService.getSupportedFormatsMessage()}. For scanned PDFs or photos, ensure the image is clear and well-lit.`,
+          422
+        );
+      }
+
+      await prisma.medicalReport.update({
+        where: { id: reportId },
+        data: {
+          extractedText: String(documentText).substring(0, 12000),
+        },
+      });
+
+      await ragService.indexReportDocument(reportId, userId, documentText);
+
+      const retrievalQuery = ragService.buildAnalysisQuery(reportName, documentText);
+      const retrievedChunks = await ragService.retrieveRelevantChunks(
+        userId,
+        reportId,
+        retrievalQuery
+      );
+
+      const ragContext = ragService.buildRagContext(retrievedChunks, reportName);
+      const analysisPrompt = this.buildRagAnalysisPrompt(ragContext, documentText);
+
       const model = genAI.getGenerativeModel({
         model: 'gemini-2.5-flash',
         generationConfig: { responseMimeType: 'application/json' },
@@ -102,106 +114,76 @@ export class AIAnalysisService {
       const analysisText = result.response.text();
       const analysis = this.parseAIResponse(analysisText);
 
-      const existing = await prisma.aIAnalysis.findUnique({
-          where: { id: reportId },
-      });
-
-      // const payload = {
-      //   diseaseDetected: asText(analysis.disease_detected, 'Unknown'),
-      //   severity: normalizeSeverity(analysis.severity),
-      //   riskScore: Number(analysis.risk_score) || 0,
-      //   aiSummary: asText(analysis.summary, 'No summary available'),
-      //   causes: asText(analysis.causes),
-      //   precautions: asText(analysis.precautions),
-      //   dietSuggestions: asText(analysis.diet_suggestions),
-      //   exerciseSuggestions: asText(analysis.exercise_suggestions),
-      //   medicationsWarning: asText(analysis.medications_warning, null),
-      //   doctorRecommendation: asText(analysis.doctor_recommendation, null),
-      // };
-
-      // const aiAnalysis = existing
-      //   ? await prisma.aIAnalysis.update({
-      //       where: { reportId },
-      //       data: payload,
-      //     })
-      //   : await prisma.aIAnalysis.create({
-      //       data: {
-      //         reportId,
-      //         ...payload,
-      //       },
-      //     });
+      if (!analysis) {
+        throw new AppError(
+          'AI returned an invalid response. Please retry analysis — no medical conclusions were saved.',
+          422
+        );
+      }
 
       const payload = {
-        diseaseDetected: asText(
-          analysis.disease_detected,
-          'Unknown'
-        ),
+        diseaseDetected: asText(analysis.disease_detected, 'Unknown'),
         severity: normalizeSeverity(analysis.severity),
         riskScore: Number(analysis.risk_score) || 0,
-        aiSummary: asText(
-          analysis.summary,
-          'No summary available'
-        ),
+        aiSummary: asText(analysis.summary, 'No summary available'),
         causes: asText(analysis.causes),
         precautions: asText(analysis.precautions),
         dietSuggestions: asText(analysis.diet_suggestions),
-        exerciseSuggestions: asText(
-          analysis.exercise_suggestions
-        ),
-        medicationsWarning: asText(
-          analysis.medications_warning,
-          null
-        ),
-        doctorRecommendation: asText(
-          analysis.doctor_recommendation,
-          null
-        ),
+        exerciseSuggestions: asText(analysis.exercise_suggestions),
+        medicationsWarning: asText(analysis.medications_warning, null),
+        doctorRecommendation: asText(analysis.doctor_recommendation, null),
       };
-      
+
       const aiAnalysis = await prisma.aIAnalysis.upsert({
-        where: {
-          reportId,
-        },
+        where: { reportId },
         update: payload,
         create: {
           reportId,
           ...payload,
         },
-      }); 
+      });
 
       await prisma.medicalReport.update({
         where: { id: reportId },
         data: {
-          extractedText: String(textToAnalyze).substring(0, 8000),
           reportStatus: 'COMPLETED',
         },
       });
 
+      logger.info('RAG analysis completed', {
+        reportId,
+        chunksUsed: retrievedChunks.length,
+      });
+
       return aiAnalysis;
     } catch (error) {
-      logger.error('Gemini analysis error', {
+      logger.error('Gemini RAG analysis error', {
         message: error?.message,
         reportId,
       });
-
-
-    
 
       await prisma.medicalReport.update({
         where: { id: reportId },
         data: { reportStatus: 'FAILED' },
       });
 
+      if (error instanceof AppError) throw error;
       throw new AppError(`AI Analysis failed: ${error.message}`, 500);
     }
   }
 
-  buildAnalysisPrompt(extractedText) {
-    return `You are a medical report analysis assistant. Analyze the following medical report text and respond with ONLY valid JSON.
+  buildRagAnalysisPrompt(ragContext, fullDocumentText) {
+    return `You are a medical report analysis assistant.
 
-${extractedText || 'Medical Report - Unable to extract text. Provide cautious general analysis.'}
+You must analyze ONLY the extracted document text and retrieved context below.
+Do NOT analyze images. Do NOT invent values that are not present in the text.
 
-JSON fields required:
+${ragContext}
+
+Full extracted document text:
+${fullDocumentText}
+
+Respond with ONLY valid JSON using these fields:
 - disease_detected: string
 - severity: one of low, medium, high, critical
 - risk_score: number 0-100
@@ -214,32 +196,38 @@ JSON fields required:
 - doctor_recommendation: string
 - abnormal_values: string
 
+If text is unclear, state that clearly in summary and keep risk_score conservative.
+
 Disclaimer: This is informational only, not a medical diagnosis.`;
   }
 
+  /**
+   * Returns parsed JSON or null. Never invents medical conclusions.
+   */
   parseAIResponse(responseText) {
     try {
-      const jsonMatch = responseText.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        return JSON.parse(jsonMatch[0]);
+      const jsonMatch = String(responseText || '').match(/\{[\s\S]*\}/);
+      if (!jsonMatch) {
+        logger.error('AI response contained no JSON object');
+        return null;
       }
+
+      const parsed = JSON.parse(jsonMatch[0]);
+
+      if (
+        typeof parsed !== 'object' ||
+        parsed === null ||
+        (!parsed.summary && !parsed.disease_detected)
+      ) {
+        logger.error('AI JSON missing required medical fields');
+        return null;
+      }
+
+      return parsed;
     } catch (error) {
       logger.error('AI response parsing error', { message: error?.message });
+      return null;
     }
-
-    return {
-      disease_detected: 'Analysis completed',
-      severity: 'medium',
-      risk_score: 50,
-      summary: responseText,
-      causes: 'See summary',
-      precautions: 'Consult a doctor',
-      diet_suggestions: 'Balanced diet',
-      exercise_suggestions: 'Regular exercise as advised by a clinician',
-      medications_warning: 'Consult your pharmacist or doctor',
-      doctor_recommendation: 'Consult a general practitioner',
-      abnormal_values: 'See report',
-    };
   }
 
   async getAnalysisHistory(userId, page = 1, limit = 10) {
@@ -283,7 +271,7 @@ Disclaimer: This is informational only, not a medical diagnosis.`;
 
   async getAnalysisByReportId(reportId, userId) {
     const analysis = await prisma.aIAnalysis.findUnique({
-      where: { id: reportId },
+      where: { reportId },
       include: { report: true },
     });
 
@@ -292,6 +280,56 @@ Disclaimer: This is informational only, not a medical diagnosis.`;
     }
 
     return analysis;
+  }
+
+  async getAnalysisStatus(reportId, userId) {
+    const report = await prisma.medicalReport.findUnique({
+      where: { id: reportId },
+      include: { aiAnalysis: true },
+    });
+
+    if (!report || report.userId !== userId) {
+      throw new AppError('Report not found', 404);
+    }
+
+    let comparison = null;
+    let medicalHistory = [];
+
+    if (report.reportStatus === 'COMPLETED' && report.aiAnalysis) {
+      const history = await comparisonServiceSafe(userId);
+      medicalHistory = history.medicalHistory;
+      comparison = history.comparison;
+    }
+
+    return {
+      status: report.reportStatus,
+      report: {
+        id: report.id,
+        reportName: report.reportName,
+        fileUrl: report.fileUrl,
+        uploadDate: report.uploadDate,
+        extractedTextPreview: report.extractedText
+          ? String(report.extractedText).slice(0, 300)
+          : null,
+      },
+      analysis: report.aiAnalysis,
+      comparison,
+      medicalHistory,
+    };
+  }
+}
+
+async function comparisonServiceSafe(userId) {
+  try {
+    const comparisonService = (await import('./comparisonServices.js')).default;
+    const medicalHistory = await comparisonService.getDiseaseHistory(userId);
+    const latestComparison = await comparisonService.getComparisonHistory(userId, 1, 1);
+    return {
+      medicalHistory,
+      comparison: latestComparison.comparisons[0] || null,
+    };
+  } catch {
+    return { medicalHistory: [], comparison: null };
   }
 }
 

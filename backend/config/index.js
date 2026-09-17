@@ -7,7 +7,7 @@ export const config = {
   NODE_ENV: process.env.NODE_ENV || 'development',
   PORT: parseInt(process.env.PORT) || 5000,
   API_URL: process.env.API_URL || 'http://localhost:5000',
-  FRONTEND_URL: process.env.FRONTEND_URL || 'http://localhost:3000',
+  FRONTEND_URL: process.env.FRONTEND_URL || 'http://localhost:3030',
 
   // Database
   DATABASE_URL: process.env.DATABASE_URL,
@@ -52,10 +52,18 @@ export const config = {
     from: process.env.SMTP_FROM || 'noreply@medicalreport.com',
   },
 
-  // Redis
+  // Redis (Bull analysis queue)
   redis: {
-    url: process.env.REDIS_URL || 'redis://localhost:6379',
+    url: process.env.REDIS_URL || 'redis://127.0.0.1:6379',
     password: process.env.REDIS_PASSWORD,
+  },
+
+  // Qdrant Vector DB (RAG embeddings)
+  qdrant: {
+    url: process.env.QDRANT_URL || '',
+    apiKey: process.env.QDRANT_API_KEY || '',
+    collection: process.env.QDRANT_COLLECTION || 'medical_report_chunks',
+    vectorSize: parseInt(process.env.QDRANT_VECTOR_SIZE) || 768,
   },
 
   // AI APIs
@@ -70,6 +78,14 @@ export const config = {
       process.env.GEMINI_API_KEY ||
       process.env.GOOGLE_API_KEY ||
       process.env.GOOGLE_API_KEY2,
+  },
+
+  // AI / RAG
+  rag: {
+    chunkSize: parseInt(process.env.RAG_CHUNK_SIZE) || 800,
+    chunkOverlap: parseInt(process.env.RAG_CHUNK_OVERLAP) || 150,
+    topK: parseInt(process.env.RAG_TOP_K) || 6,
+    embeddingModel: process.env.RAG_EMBEDDING_MODEL || 'gemini-embedding-001',
   },
 
   // Logging

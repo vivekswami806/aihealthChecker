@@ -47,7 +47,7 @@ export async function connectDB() {
   try {
     await prisma.$connect();
 
-    logger.info(' PostgreSQL connected successfully');
+    console.log(' PostgreSQL connected successfully');
   } catch (error) {
     logger.error('❌ Database connection failed', {
       error: error.message,
@@ -64,7 +64,7 @@ export async function disconnectDB() {
   try {
     await prisma.$disconnect();
 
-    logger.info('📦 Database disconnected successfully');
+    console.log('📦 Database disconnected successfully');
   } catch (error) {
     logger.error('❌ Error disconnecting database', {
       error: error.message,

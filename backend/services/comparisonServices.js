@@ -17,12 +17,12 @@ export class ComparisonService {
   async compareReports(userId, oldReportId, newReportId) {
     const oldReport = await prisma.medicalReport.findUnique({
       where: { id: oldReportId },
-      include: { aIAnalysis: true },
+      include: { aiAnalysis: true },
     });
 
     const newReport = await prisma.medicalReport.findUnique({
       where: { id: newReportId },
-      include: { aIAnalysis: true },
+      include: { aiAnalysis: true },
     });
 
     if (
@@ -69,7 +69,7 @@ export class ComparisonService {
 
     await this.updateDiseaseHistory(userId, newAnalysis);
 
-    logger.info(`Reports compared: ${oldReportId} vs ${newReportId}`);
+    console.log(`Reports compared: ${oldReportId} vs ${newReportId}`);
     return reportComparison;
   }
 
@@ -87,7 +87,7 @@ export class ComparisonService {
 
     if (!previous) {
       const analysis = await prisma.aIAnalysis.findUnique({
-        where: { id: newReportId },
+        where: { reportId: newReportId },
       });
       if (analysis) {
         await this.updateDiseaseHistory(userId, analysis);

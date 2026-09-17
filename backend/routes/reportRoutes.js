@@ -10,11 +10,8 @@ const router = Router();
 router.use(authenticate);
 
 // Upload report
-router.post(
-  '/upload',
-  uploadMiddleware.single('file'),
-  // uploadReportValidator,
-  reportController.uploadReport
+router.post('/upload', uploadMiddleware.single('file'), // uploadReportValidator,
+reportController.uploadReport
 );
 
 // Get all user reports

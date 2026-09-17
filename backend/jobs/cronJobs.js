@@ -5,12 +5,12 @@ import notificationService from '../services/notificationServices.js';
 
 export class CronJobs {
   static initialize() {
-    logger.info('Initializing cron jobs...');
+    console.log('Initializing cron jobs...');
 
     // Daily health reminders at 9 AM
     schedule.scheduleJob('0 9 * * *', async () => {
       try {
-        logger.info('Running daily health reminder job...');
+        console.log('Running daily health reminder job...');
         const users = await prisma.user.findMany({
           select: { id: true },
         });
@@ -26,7 +26,7 @@ export class CronJobs {
     // Weekly subscription check (every Monday at 10 AM)
     schedule.scheduleJob('0 10 ? * MON', async () => {
       try {
-        logger.info('Running subscription expiry check...');
+        console.log('Running subscription expiry check...');
         const expiringSubscriptions = await prisma.subscription.findMany({
           where: {
             expiry_date: {
@@ -48,7 +48,7 @@ export class CronJobs {
     // Monthly health summary (1st of month at 8 AM)
     schedule.scheduleJob('0 8 1 * *', async () => {
       try {
-        logger.info('Running monthly health summary job...');
+        console.log('Running monthly health summary job...');
         // Generate and send health summaries
         // Implementation based on your requirements
       } catch (error) {
@@ -59,7 +59,7 @@ export class CronJobs {
     // Clean up old notifications (daily at 2 AM)
     schedule.scheduleJob('0 2 * * *', async () => {
       try {
-        logger.info('Running notification cleanup...');
+        console.log('Running notification cleanup...');
         const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
         
         const result = await prisma.notification.deleteMany({
@@ -69,7 +69,7 @@ export class CronJobs {
           },
         });
 
-        logger.info(`Deleted ${result.count} old notifications`);
+        console.log(`Deleted ${result.count} old notifications`);
       } catch (error) {
         logger.error('Notification cleanup error:', error);
       }
@@ -78,19 +78,19 @@ export class CronJobs {
     // Database backup check (daily at 3 AM)
     schedule.scheduleJob('0 3 * * *', async () => {
       try {
-        logger.info('Running database backup check...');
+        console.log('Running database backup check...');
         // Implement your backup logic here
       } catch (error) {
         logger.error('Database backup error:', error);
       }
     });
 
-    logger.info('Cron jobs initialized successfully');
+    console.log('Cron jobs initialized successfully');
   }
 
   static stopAll() {
     schedule.gracefulShutdown();
-    logger.info('All cron jobs stopped');
+    console.log('All cron jobs stopped');
   }
 }
 

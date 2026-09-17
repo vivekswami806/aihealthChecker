@@ -18,11 +18,17 @@ import notificationRoutes from './routes/notificationRoutes.js';
 import chatRoutes from './routes/chatRoutes.js';
 
 import './config/passport.js';
+import qdrantService from './services/qdrantService.js';
+import { initAnalysisQueue } from './jobs/analysisQueue.js';
 
 const app = express();
 
 // Database connection
 await connectDB();
+
+// Vector DB + analysis queue (non-blocking if unavailable)
+await qdrantService.init();
+initAnalysisQueue();
 
 // Trust proxy
 app.set('trust proxy', 1);
@@ -31,7 +37,7 @@ app.set('trust proxy', 1);
 app.use(securityMiddleware);
 app.use(
   cors({
-    origin: 'http://localhost:3030',
+    origin: config.FRONTEND_URL || 'http://localhost:3030',
     credentials: true,
   })
 );
@@ -49,7 +55,7 @@ app.use(rateLimiter());
 
 // Request logging
 app.use((req, res, next) => {
-  logger.info(`${req.method} ${req.path}`, {
+  console.log(`${req.method} ${req.path}`, {
     ip: req.ip,
     userAgent: req.get('user-agent'),
   });
@@ -98,19 +104,19 @@ app.use(errorHandler);
 // Start server
 const PORT = config.PORT;
 app.listen(PORT, () => {
-  logger.info(`Server running on port ${PORT}`);
-  logger.info(`Environment: ${config.NODE_ENV}`);
-  logger.info(`API URL: ${config.API_URL}`);
+  console.log(`Server running on port ${PORT}`);
+  console.log(`Environment: ${config.NODE_ENV}`);
+  console.log(`API URL: ${config.API_URL}`);
 });
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
-  logger.info('SIGTERM signal received: closing HTTP server');
+  console.log('SIGTERM signal received: closing HTTP server');
   process.exit(0);
 });
 
 process.on('SIGINT', () => {
-  logger.info('SIGINT signal received: closing HTTP server');
+  console.log('SIGINT signal received: closing HTTP server');
   process.exit(0);
 });
 

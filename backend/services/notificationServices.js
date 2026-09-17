@@ -40,7 +40,7 @@ export class NotificationService {
         subject,
         html,
       });
-      logger.info(`Email sent to: ${to}`);
+      console.log(`Email sent to: ${to}`);
     } catch (error) {
       logger.error('Email send error:', error);
       throw error;
@@ -57,7 +57,7 @@ export class NotificationService {
           type: normalizeNotificationType(type),
         },
       });
-      logger.info(`In-app notification created for user: ${userId}`);
+      console.info(`In-app notification created for user: ${userId}`);
       return notification;
     } catch (error) {
       logger.error('Notification creation error:', error);

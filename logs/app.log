@@ -1,1731 +1,21 @@
-2026-08-16 11:57:56 [INFO]:  PostgreSQL connected successfully {
+2026-09-02 14:53:30 [INFO]:  PostgreSQL connected successfully {
   "service": "medical-backend"
 }
-2026-08-16 11:57:56 [INFO]: Server running on port 3000 {
+2026-09-02 14:53:30 [INFO]: Server running on port 3000 {
   "service": "medical-backend"
 }
-2026-08-16 11:57:56 [INFO]: Environment: development {
+2026-09-02 14:53:30 [INFO]: Environment: development {
   "service": "medical-backend"
 }
-2026-08-16 11:57:56 [INFO]: API URL: http://localhost:3030 {
+2026-09-02 14:53:30 [INFO]: API URL: http://localhost:3000 {
   "service": "medical-backend"
 }
-2026-08-16 11:58:22 [INFO]: GET /api/auth/google {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 11:59:09 [INFO]: GET /api/auth/google/callback {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 11:59:13 [INFO]: GET /api/auth/me {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 11:59:14 [INFO]: GET /api/auth/me {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:01:22 [INFO]: POST /api/reports/upload {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:01:33 [INFO]: Report uploaded: 18d00511-05d9-4f4b-8fb9-d775c6d80b02 for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 12:01:33 [ERROR]: Notification creation error: 
-Invalid `prisma.notification.create()` invocation:
-
-{
-  data: {
-    user_id: "0f65d0ee-a84d-4c21-870d-8de309801f4a",
-    title: "Report Uploaded",
-    message: "Your report \"WhatsApp Image 2026-08-06 at 10.22.17 AM.jpeg\" has been uploaded and is being processed.",
-    type: "INFO",
-    action_url: null,
-+   user: {
-+     create: UserCreateWithoutNotificationsInput | UserUncheckedCreateWithoutNotificationsInput,
-+     connectOrCreate: UserCreateOrConnectWithoutNotificationsInput,
-+     connect: UserWhereUniqueInput
-+   }
-  }
-}
-
-Argument `user` is missing. {
-  "service": "medical-backend",
-  "name": "PrismaClientValidationError",
-  "clientVersion": "5.22.0"
-}
-PrismaClientValidationError: 
-Invalid `prisma.notification.create()` invocation:
-
-{
-  data: {
-    user_id: "0f65d0ee-a84d-4c21-870d-8de309801f4a",
-    title: "Report Uploaded",
-    message: "Your report \"WhatsApp Image 2026-08-06 at 10.22.17 AM.jpeg\" has been uploaded and is being processed.",
-    type: "INFO",
-    action_url: null,
-+   user: {
-+     create: UserCreateWithoutNotificationsInput | UserUncheckedCreateWithoutNotificationsInput,
-+     connectOrCreate: UserCreateOrConnectWithoutNotificationsInput,
-+     connect: UserWhereUniqueInput
-+   }
-  }
-}
-
-Argument `user` is missing.
-    at wn (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:29:1363)
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6958)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async NotificationService.createInAppNotification (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/notificationServices.js:35:28)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/reportController.js:22:5
-2026-08-16 12:01:33 [ERROR]: 
-Invalid `prisma.notification.create()` invocation:
-
-{
-  data: {
-    user_id: "0f65d0ee-a84d-4c21-870d-8de309801f4a",
-    title: "Report Uploaded",
-    message: "Your report \"WhatsApp Image 2026-08-06 at 10.22.17 AM.jpeg\" has been uploaded and is being processed.",
-    type: "INFO",
-    action_url: null,
-+   user: {
-+     create: UserCreateWithoutNotificationsInput | UserUncheckedCreateWithoutNotificationsInput,
-+     connectOrCreate: UserCreateOrConnectWithoutNotificationsInput,
-+     connect: UserWhereUniqueInput
-+   }
-  }
-}
-
-Argument `user` is missing. {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/reports/upload",
-  "method": "POST"
-}
-PrismaClientValidationError: 
-Invalid `prisma.notification.create()` invocation:
-
-{
-  data: {
-    user_id: "0f65d0ee-a84d-4c21-870d-8de309801f4a",
-    title: "Report Uploaded",
-    message: "Your report \"WhatsApp Image 2026-08-06 at 10.22.17 AM.jpeg\" has been uploaded and is being processed.",
-    type: "INFO",
-    action_url: null,
-+   user: {
-+     create: UserCreateWithoutNotificationsInput | UserUncheckedCreateWithoutNotificationsInput,
-+     connectOrCreate: UserCreateOrConnectWithoutNotificationsInput,
-+     connect: UserWhereUniqueInput
-+   }
-  }
-}
-
-Argument `user` is missing.
-    at wn (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:29:1363)
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6958)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async NotificationService.createInAppNotification (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/notificationServices.js:35:28)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/reportController.js:22:5
-2026-08-16 12:13:13 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 12:13:13 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:13:13 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 12:13:13 [INFO]: API URL: http://localhost:3030 {
-  "service": "medical-backend"
-}
-2026-08-16 12:13:59 [INFO]: GET / {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0"
-}
-2026-08-16 12:14:00 [INFO]: GET /favicon.ico {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0"
-}
-2026-08-16 12:14:36 [INFO]: GET /api/auth/google {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:14:45 [INFO]: GET /api/auth/google/callback {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:14:48 [INFO]: GET /api/auth/me {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:14:48 [INFO]: GET /api/auth/me {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:15:34 [INFO]: POST /api/reports/upload {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:15:39 [INFO]: Report uploaded: 3db480ef-f15d-45d9-beda-f8d2acd162e2 for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 12:15:39 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 12:15:41 [INFO]: POST /api/ai/3db480ef-f15d-45d9-beda-f8d2acd162e2/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:15:41 [INFO]: POST /api/ai/3db480ef-f15d-45d9-beda-f8d2acd162e2/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:15:41 [INFO]: Starting Gemini analysis for report: 3db480ef-f15d-45d9-beda-f8d2acd162e2 {
-  "service": "medical-backend"
-}
-2026-08-16 12:15:41 [INFO]: Extracting text from file: {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786862737/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786862735373-87bfa267-6ae0-47e5-a9ae-b280730fac19.webp",
-  "reportType": "image/webp"
-}
-2026-08-16 12:15:42 [INFO]: Starting Gemini analysis for report: 3db480ef-f15d-45d9-beda-f8d2acd162e2 {
-  "service": "medical-backend"
-}
-2026-08-16 12:15:42 [INFO]: Extracting text from file: {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786862737/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786862735373-87bfa267-6ae0-47e5-a9ae-b280730fac19.webp",
-  "reportType": "image/webp"
-}
-2026-08-16 12:15:42 [INFO]: Starting OCR for image... {
-  "service": "medical-backend"
-}
-2026-08-16 12:15:43 [INFO]: Starting OCR for image... {
-  "service": "medical-backend"
-}
-2026-08-16 12:15:46 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "reportId": "3db480ef-f15d-45d9-beda-f8d2acd162e2"
-}
-2026-08-16 12:15:46 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/3db480ef-f15d-45d9-beda-f8d2acd162e2/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:291:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:16:18
-2026-08-16 12:15:46 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "reportId": "3db480ef-f15d-45d9-beda-f8d2acd162e2"
-}
-2026-08-16 12:15:46 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/3db480ef-f15d-45d9-beda-f8d2acd162e2/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:291:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:16:18
-2026-08-16 12:25:40 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 12:25:40 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:25:40 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 12:25:40 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:25:45 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 12:25:45 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:25:45 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 12:25:45 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:12 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:12 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:12 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:12 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:20 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:20 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:20 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:20 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:26 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:26 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:26 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:26 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:40 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:40 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:40 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:40 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:52 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:52 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:52 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:52 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:57 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:58 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:58 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 12:26:58 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:27:12 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 12:27:12 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:27:12 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 12:27:12 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:32:04 [INFO]: GET /api/users/profile {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:32:04 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:32:42 [INFO]: GET /api/users/profile {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:32:42 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:33:04 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:34:25 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 12:34:25 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:34:25 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 12:34:25 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:36:04 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:07 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:09 [INFO]: GET /api/health/diseases {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:09 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:09 [INFO]: GET /api/reports/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:09 [INFO]: GET /api/health/diseases {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:10 [INFO]: GET /api/health/diseases {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:10 [INFO]: GET /api/health/diseases {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:10 [INFO]: GET /api/reports/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:12 [INFO]: GET /api/reports/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:13 [INFO]: GET /api/reports/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:22 [INFO]: GET /api/health/timeline {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:22 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:23 [INFO]: GET /api/health/timeline {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:23 [INFO]: GET /api/health/timeline {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:24 [INFO]: GET /api/health/timeline {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:31 [INFO]: GET /api/chat/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:31 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:32 [INFO]: GET /api/chat/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:32 [INFO]: GET /api/chat/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:32 [INFO]: GET /api/chat/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:35 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:35 [INFO]: GET /api/notifications/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:35 [INFO]: GET /api/notifications/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:36 [INFO]: GET /api/notifications/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:36:36 [INFO]: GET /api/notifications/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:38:37 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:39:52 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:42:16 [INFO]: GET /home/historical_trend_curve {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:42:16 [INFO]: GET /favicon.ico {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:43:32 [INFO]: POST /api/reports/upload {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:43:37 [INFO]: Cloudinary upload success {
-  "service": "medical-backend",
-  "publicId": "medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786864414448-3a892e3e-d03f-4b30-8af3-b0370b0d36eb",
-  "url": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786864415/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786864414448-3a892e3e-d03f-4b30-8af3-b0370b0d36eb.png"
-}
-2026-08-16 12:43:37 [INFO]: Report uploaded: 1ddd0142-0c22-48a0-83ef-2a5ea7b60909 for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 12:43:37 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 12:43:37 [INFO]: POST /api/ai/1ddd0142-0c22-48a0-83ef-2a5ea7b60909/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:43:37 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:43:38 [INFO]: POST /api/ai/1ddd0142-0c22-48a0-83ef-2a5ea7b60909/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:43:38 [INFO]: Starting Gemini analysis for report: 1ddd0142-0c22-48a0-83ef-2a5ea7b60909 {
-  "service": "medical-backend"
-}
-2026-08-16 12:43:39 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786864415/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786864414448-3a892e3e-d03f-4b30-8af3-b0370b0d36eb.png",
-  "reportType": "image/png"
-}
-2026-08-16 12:43:40 [INFO]: Starting Gemini analysis for report: 1ddd0142-0c22-48a0-83ef-2a5ea7b60909 {
-  "service": "medical-backend"
-}
-2026-08-16 12:43:40 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786864415/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786864414448-3a892e3e-d03f-4b30-8af3-b0370b0d36eb.png",
-  "reportType": "image/png"
-}
-2026-08-16 12:43:43 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "reportId": "1ddd0142-0c22-48a0-83ef-2a5ea7b60909"
-}
-2026-08-16 12:43:43 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/1ddd0142-0c22-48a0-83ef-2a5ea7b60909/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 12:43:43 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "reportId": "1ddd0142-0c22-48a0-83ef-2a5ea7b60909"
-}
-2026-08-16 12:43:44 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/1ddd0142-0c22-48a0-83ef-2a5ea7b60909/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 12:47:34 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 12:47:34 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:47:34 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 12:47:34 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:48:11 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:48:13 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:48:24 [INFO]: POST /api/reports/upload {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:48:27 [INFO]: Cloudinary upload success {
-  "service": "medical-backend",
-  "publicId": "medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786864704868-ac091569-347a-4af6-8d0a-da47418c32bf",
-  "url": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786864705/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786864704868-ac091569-347a-4af6-8d0a-da47418c32bf.png"
-}
-2026-08-16 12:48:27 [INFO]: Report uploaded: b12a2504-30fd-4e56-92ac-1f1245d36ba7 for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 12:48:27 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 12:48:27 [INFO]: POST /api/ai/b12a2504-30fd-4e56-92ac-1f1245d36ba7/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:48:27 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:48:27 [INFO]: POST /api/ai/b12a2504-30fd-4e56-92ac-1f1245d36ba7/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:48:28 [INFO]: Starting Gemini analysis for report: b12a2504-30fd-4e56-92ac-1f1245d36ba7 {
-  "service": "medical-backend"
-}
-2026-08-16 12:48:29 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786864705/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786864704868-ac091569-347a-4af6-8d0a-da47418c32bf.png",
-  "reportType": "image/png"
-}
-2026-08-16 12:48:30 [INFO]: Starting Gemini analysis for report: b12a2504-30fd-4e56-92ac-1f1245d36ba7 {
-  "service": "medical-backend"
-}
-2026-08-16 12:48:30 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786864705/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786864704868-ac091569-347a-4af6-8d0a-da47418c32bf.png",
-  "reportType": "image/png"
-}
-2026-08-16 12:48:43 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "b12a2504-30fd-4e56-92ac-1f1245d36ba7"
-}
-2026-08-16 12:48:43 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/b12a2504-30fd-4e56-92ac-1f1245d36ba7/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 12:48:45 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "b12a2504-30fd-4e56-92ac-1f1245d36ba7"
-}
-2026-08-16 12:48:45 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/b12a2504-30fd-4e56-92ac-1f1245d36ba7/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 12:52:59 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 12:52:59 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:52:59 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 12:52:59 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:53:10 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:12 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:12 [INFO]: GET /api/notifications/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:13 [INFO]: GET /api/notifications/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:13 [INFO]: GET /api/notifications/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:14 [INFO]: GET /api/notifications/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:21 [INFO]: DELETE /api/notifications/701f9986-c67f-4fe6-a8a7-d8955cbff64b {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:22 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:24 [INFO]: DELETE /api/notifications/507d8c19-352b-4283-bc13-e95b0576a712 {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:24 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:26 [INFO]: DELETE /api/notifications/e3ad7627-75ca-42c4-9ff1-a8ec29989809 {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:26 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:28 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:29 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:40 [INFO]: POST /api/reports/upload {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:46 [INFO]: Cloudinary upload success {
-  "service": "medical-backend",
-  "publicId": "medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786865021199-03c8d0b1-3960-421f-a1d7-e04fb8e0bbbe",
-  "url": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786865024/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786865021199-03c8d0b1-3960-421f-a1d7-e04fb8e0bbbe.png"
-}
-2026-08-16 12:53:46 [INFO]: Report uploaded: 6ea34d97-aaaf-4e07-96a3-c408b45d4399 for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 12:53:47 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 12:53:47 [INFO]: POST /api/ai/6ea34d97-aaaf-4e07-96a3-c408b45d4399/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:47 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:53:48 [INFO]: Starting Gemini analysis for report: 6ea34d97-aaaf-4e07-96a3-c408b45d4399 {
-  "service": "medical-backend"
-}
-2026-08-16 12:53:48 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786865024/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786865021199-03c8d0b1-3960-421f-a1d7-e04fb8e0bbbe.png",
-  "reportType": "image/png"
-}
-2026-08-16 12:54:02 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "6ea34d97-aaaf-4e07-96a3-c408b45d4399"
-}
-2026-08-16 12:54:02 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/6ea34d97-aaaf-4e07-96a3-c408b45d4399/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 12:58:10 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 12:58:10 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:58:10 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 12:58:10 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 12:58:35 [INFO]: POST /api/ai/6ea34d97-aaaf-4e07-96a3-c408b45d4399/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:58:36 [INFO]: Starting Gemini analysis for report: 6ea34d97-aaaf-4e07-96a3-c408b45d4399 {
-  "service": "medical-backend"
-}
-2026-08-16 12:58:36 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786865024/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786865021199-03c8d0b1-3960-421f-a1d7-e04fb8e0bbbe.png",
-  "reportType": "image/png"
-}
-2026-08-16 12:58:39 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:58:41 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:58:49 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "6ea34d97-aaaf-4e07-96a3-c408b45d4399"
-}
-2026-08-16 12:58:49 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/6ea34d97-aaaf-4e07-96a3-c408b45d4399/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 12:58:55 [INFO]: POST /api/reports/upload {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:59:00 [INFO]: Cloudinary upload success {
-  "service": "medical-backend",
-  "publicId": "medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786865336307-bef1e073-6cf6-4d6e-8bcf-a2f11b9eb60b",
-  "url": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786865338/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786865336307-bef1e073-6cf6-4d6e-8bcf-a2f11b9eb60b.png"
-}
-2026-08-16 12:59:00 [INFO]: Report uploaded: e0668350-6573-4c3e-aeec-f84ae08e5465 for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 12:59:00 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 12:59:00 [INFO]: POST /api/ai/e0668350-6573-4c3e-aeec-f84ae08e5465/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:59:00 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:59:01 [INFO]: Starting Gemini analysis for report: e0668350-6573-4c3e-aeec-f84ae08e5465 {
-  "service": "medical-backend"
-}
-2026-08-16 12:59:01 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786865338/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786865336307-bef1e073-6cf6-4d6e-8bcf-a2f11b9eb60b.png",
-  "reportType": "image/png"
-}
-2026-08-16 12:59:15 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "e0668350-6573-4c3e-aeec-f84ae08e5465"
-}
-2026-08-16 12:59:15 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/e0668350-6573-4c3e-aeec-f84ae08e5465/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 12:59:37 [INFO]: POST /api/ai/e0668350-6573-4c3e-aeec-f84ae08e5465/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 12:59:38 [INFO]: Starting Gemini analysis for report: e0668350-6573-4c3e-aeec-f84ae08e5465 {
-  "service": "medical-backend"
-}
-2026-08-16 12:59:39 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786865338/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786865336307-bef1e073-6cf6-4d6e-8bcf-a2f11b9eb60b.png",
-  "reportType": "image/png"
-}
-2026-08-16 12:59:50 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "e0668350-6573-4c3e-aeec-f84ae08e5465"
-}
-2026-08-16 12:59:51 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/e0668350-6573-4c3e-aeec-f84ae08e5465/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 13:02:30 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 13:02:30 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 13:02:30 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 13:02:30 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 13:02:45 [INFO]: POST /api/ai/e0668350-6573-4c3e-aeec-f84ae08e5465/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:02:45 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:02:46 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:02:49 [INFO]: POST /api/ai/e0668350-6573-4c3e-aeec-f84ae08e5465/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:02:49 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:02:50 [INFO]: Starting Gemini analysis for report: e0668350-6573-4c3e-aeec-f84ae08e5465 {
-  "service": "medical-backend"
-}
-2026-08-16 13:02:50 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786865338/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786865336307-bef1e073-6cf6-4d6e-8bcf-a2f11b9eb60b.png",
-  "reportType": "image/png"
-}
-2026-08-16 13:02:51 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:02:51 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:02:58 [INFO]: Starting Gemini analysis for report: e0668350-6573-4c3e-aeec-f84ae08e5465 {
-  "service": "medical-backend"
-}
-2026-08-16 13:02:59 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786865338/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786865336307-bef1e073-6cf6-4d6e-8bcf-a2f11b9eb60b.png",
-  "reportType": "image/png"
-}
-2026-08-16 13:03:03 [INFO]: POST /api/reports/upload {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:03:06 [INFO]: Cloudinary upload success {
-  "service": "medical-backend",
-  "publicId": "medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786865583988-aeda0dc2-8cfe-4c1a-9c1e-774023c53e5e",
-  "url": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786865585/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786865583988-aeda0dc2-8cfe-4c1a-9c1e-774023c53e5e.png"
-}
-2026-08-16 13:03:07 [INFO]: Report uploaded: 88ff1b09-726d-45d7-a344-95a472492ac9 for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 13:03:07 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 13:03:07 [INFO]: POST /api/ai/88ff1b09-726d-45d7-a344-95a472492ac9/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:03:07 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:03:07 [INFO]: POST /api/ai/88ff1b09-726d-45d7-a344-95a472492ac9/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:03:07 [INFO]: Starting Gemini analysis for report: 88ff1b09-726d-45d7-a344-95a472492ac9 {
-  "service": "medical-backend"
-}
-2026-08-16 13:03:08 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786865585/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786865583988-aeda0dc2-8cfe-4c1a-9c1e-774023c53e5e.png",
-  "reportType": "image/png"
-}
-2026-08-16 13:03:08 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 13:03:09 [INFO]: Starting Gemini analysis for report: 88ff1b09-726d-45d7-a344-95a472492ac9 {
-  "service": "medical-backend"
-}
-2026-08-16 13:03:10 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786865585/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786865583988-aeda0dc2-8cfe-4c1a-9c1e-774023c53e5e.png",
-  "reportType": "image/png"
-}
-2026-08-16 13:03:10 [ERROR]: 
-Invalid `prisma.aiAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "reportId": "e0668350-6573-4c3e-aeec-f84ae08e5465"
-}
-2026-08-16 13:03:10 [ERROR]: AI Analysis failed: 
-Invalid `prisma.aiAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/e0668350-6573-4c3e-aeec-f84ae08e5465/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: 
-Invalid `prisma.aiAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`)
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 13:03:17 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 13:03:25 [ERROR]: 
-Invalid `prisma.aiAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "reportId": "88ff1b09-726d-45d7-a344-95a472492ac9"
-}
-2026-08-16 13:03:25 [ERROR]: AI Analysis failed: 
-Invalid `prisma.aiAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/88ff1b09-726d-45d7-a344-95a472492ac9/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: 
-Invalid `prisma.aiAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`)
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 13:13:50 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 13:13:50 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 13:13:50 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 13:13:50 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 13:46:31 [INFO]: GET /api/auth/google {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:46:38 [INFO]: GET /api/auth/google/callback {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:46:42 [INFO]: GET /api/auth/me {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:46:42 [INFO]: GET /api/auth/me {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:46:43 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:46:43 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:46:50 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:46:50 [INFO]: GET /api/notifications/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:46:52 [INFO]: GET /api/notifications/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:46:52 [INFO]: GET /api/notifications/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:46:52 [INFO]: GET /api/notifications/ {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:47:03 [INFO]: PUT /api/notifications/e8f403ea-4d80-4184-9201-c24eea5f85c7/read {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:47:04 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:47:06 [INFO]: PUT /api/notifications/01702e97-ab0c-4e43-b0bb-7bbee472d778/read {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:47:07 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:56:15 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:56:20 [ERROR]: Authentication error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "name": "PrismaClientKnownRequestError",
-  "code": "P1001",
-  "clientVersion": "5.22.0",
-  "meta": {
-    "modelName": "User",
-    "database_host": "db.prisma.io",
-    "database_port": 5432
-  }
-}
-PrismaClientKnownRequestError: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 13:56:20 [ERROR]: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "statusCode": 401,
-  "path": "/api/notifications/unread/count",
-  "method": "GET"
-}
-Error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
-2026-08-16 13:57:30 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 13:57:30 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 13:57:30 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 13:57:30 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 13:58:04 [INFO]: POST /api/reports/upload {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:58:09 [INFO]: Cloudinary upload success {
-  "service": "medical-backend",
-  "publicId": "medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786868885397-18b1a136-c7c1-4c54-87cb-9d56a2214aed",
-  "url": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786868889/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786868885397-18b1a136-c7c1-4c54-87cb-9d56a2214aed.png"
-}
-2026-08-16 13:58:09 [INFO]: Report uploaded: ae4f322a-4ac7-468a-ac40-b27037ac7c9b for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 13:58:09 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 13:58:09 [INFO]: POST /api/ai/ae4f322a-4ac7-468a-ac40-b27037ac7c9b/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:58:09 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:58:10 [INFO]: Starting Gemini analysis for report: ae4f322a-4ac7-468a-ac40-b27037ac7c9b {
-  "service": "medical-backend"
-}
-2026-08-16 13:58:10 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786868889/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786868885397-18b1a136-c7c1-4c54-87cb-9d56a2214aed.png",
-  "reportType": "image/png"
-}
-2026-08-16 13:58:20 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "ae4f322a-4ac7-468a-ac40-b27037ac7c9b"
-}
-2026-08-16 13:58:21 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/ae4f322a-4ac7-468a-ac40-b27037ac7c9b/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 13:58:40 [INFO]: POST /api/ai/ae4f322a-4ac7-468a-ac40-b27037ac7c9b/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 13:58:42 [INFO]: Starting Gemini analysis for report: ae4f322a-4ac7-468a-ac40-b27037ac7c9b {
-  "service": "medical-backend"
-}
-2026-08-16 13:58:42 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786868889/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786868885397-18b1a136-c7c1-4c54-87cb-9d56a2214aed.png",
-  "reportType": "image/png"
-}
-2026-08-16 13:58:52 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "reportId": "ae4f322a-4ac7-468a-ac40-b27037ac7c9b"
-}
-2026-08-16 13:58:53 [ERROR]: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/ae4f322a-4ac7-468a-ac40-b27037ac7c9b/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: Cannot read properties of undefined (reading 'findUnique')
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 14:03:06 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 14:03:06 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 14:03:06 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 14:03:06 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 14:04:06 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 14:04:06 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 14:04:06 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 14:04:06 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 14:04:15 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:04:18 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:04:30 [INFO]: POST /api/reports/upload {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:04:35 [INFO]: Cloudinary upload success {
-  "service": "medical-backend",
-  "publicId": "medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786869271268-fa0f9a25-56c5-49e9-b814-ac1a6cb4d97d",
-  "url": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786869275/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786869271268-fa0f9a25-56c5-49e9-b814-ac1a6cb4d97d.png"
-}
-2026-08-16 14:04:35 [INFO]: Report uploaded: 9008a127-dd51-443d-ac8c-6cdc1a3d2a95 for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 14:04:35 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 14:04:36 [INFO]: POST /api/ai/9008a127-dd51-443d-ac8c-6cdc1a3d2a95/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:04:36 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:04:36 [INFO]: Starting Gemini analysis for report: 9008a127-dd51-443d-ac8c-6cdc1a3d2a95 {
-  "service": "medical-backend"
-}
-2026-08-16 14:04:37 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786869275/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786869271268-fa0f9a25-56c5-49e9-b814-ac1a6cb4d97d.png",
-  "reportType": "image/png"
-}
-2026-08-16 14:04:47 [ERROR]: Cannot read properties of undefined (reading 'findUnique') {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/9008a127-dd51-443d-ac8c-6cdc1a3d2a95/analyze",
-  "method": "POST"
-}
-TypeError: Cannot read properties of undefined (reading 'findUnique')
-    at ComparisonService.compareWithPrevious (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/comparisonServices.js:89:48)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:47:24
-2026-08-16 14:07:27 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 14:07:27 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 14:07:27 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 14:07:27 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 14:07:29 [INFO]: POST /api/ai/9008a127-dd51-443d-ac8c-6cdc1a3d2a95/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:07:30 [INFO]: Starting Gemini analysis for report: 9008a127-dd51-443d-ac8c-6cdc1a3d2a95 {
-  "service": "medical-backend"
-}
-2026-08-16 14:07:32 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:07:40 [INFO]: POST /api/reports/upload {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:07:45 [INFO]: Cloudinary upload success {
-  "service": "medical-backend",
-  "publicId": "medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786869460369-06f32bd5-c031-4c77-a613-8bd7d36c5cee",
-  "url": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786869465/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786869460369-06f32bd5-c031-4c77-a613-8bd7d36c5cee.png"
-}
-2026-08-16 14:07:45 [INFO]: Report uploaded: e770491f-f1a4-489d-ba9b-2cdfd6f3ec97 for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 14:07:45 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 14:07:46 [INFO]: POST /api/ai/e770491f-f1a4-489d-ba9b-2cdfd6f3ec97/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:07:46 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:07:46 [INFO]: Starting Gemini analysis for report: e770491f-f1a4-489d-ba9b-2cdfd6f3ec97 {
-  "service": "medical-backend"
-}
-2026-08-16 14:07:46 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786869465/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786869460369-06f32bd5-c031-4c77-a613-8bd7d36c5cee.png",
-  "reportType": "image/png"
-}
-2026-08-16 14:07:46 [ERROR]: 
-Invalid `prisma.aIAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "reportId": "9008a127-dd51-443d-ac8c-6cdc1a3d2a95"
-}
-2026-08-16 14:07:46 [ERROR]: AI Analysis failed: 
-Invalid `prisma.aIAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/9008a127-dd51-443d-ac8c-6cdc1a3d2a95/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: 
-Invalid `prisma.aIAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`)
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 14:07:54 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 14:09:18 [INFO]: POST /api/ai/e770491f-f1a4-489d-ba9b-2cdfd6f3ec97/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:09:20 [INFO]: Starting Gemini analysis for report: e770491f-f1a4-489d-ba9b-2cdfd6f3ec97 {
-  "service": "medical-backend"
-}
-2026-08-16 14:09:27 [ERROR]: 
-Invalid `prisma.aIAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "reportId": "e770491f-f1a4-489d-ba9b-2cdfd6f3ec97"
-}
-2026-08-16 14:09:28 [ERROR]: AI Analysis failed: 
-Invalid `prisma.aIAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`) {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/e770491f-f1a4-489d-ba9b-2cdfd6f3ec97/analyze",
-  "method": "POST"
-}
-Error: AI Analysis failed: 
-Invalid `prisma.aIAnalysis.create()` invocation:
-
-
-Unique constraint failed on the fields: (`reportId`)
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:154:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 14:15:03 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 14:15:03 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 14:15:03 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 14:15:03 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 14:15:11 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:15:18 [INFO]: POST /api/reports/upload {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:15:23 [ERROR]: Authentication error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "name": "PrismaClientKnownRequestError",
-  "code": "P1001",
-  "clientVersion": "5.22.0",
-  "meta": {
-    "modelName": "User",
-    "database_host": "db.prisma.io",
-    "database_port": 5432
-  }
-}
-PrismaClientKnownRequestError: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 14:15:23 [ERROR]: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "statusCode": 401,
-  "path": "/api/reports/upload",
-  "method": "POST"
-}
-Error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
-2026-08-16 14:15:47 [INFO]:  PostgreSQL connected successfully {
-  "service": "medical-backend"
-}
-2026-08-16 14:15:47 [INFO]: Server running on port 3000 {
-  "service": "medical-backend"
-}
-2026-08-16 14:15:47 [INFO]: Environment: development {
-  "service": "medical-backend"
-}
-2026-08-16 14:15:47 [INFO]: API URL: http://localhost:3000 {
-  "service": "medical-backend"
-}
-2026-08-16 14:15:58 [INFO]: POST /api/reports/upload {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:16:03 [INFO]: Cloudinary upload success {
-  "service": "medical-backend",
-  "publicId": "medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786869959139-4002f974-4c78-416d-b77a-3e7048516129",
-  "url": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786869963/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786869959139-4002f974-4c78-416d-b77a-3e7048516129.png"
-}
-2026-08-16 14:16:04 [INFO]: Report uploaded: 7ff0a2bc-b8cc-4b04-9956-c1a8ed128a5d for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 14:16:04 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 14:16:04 [INFO]: POST /api/ai/7ff0a2bc-b8cc-4b04-9956-c1a8ed128a5d/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:16:04 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:16:05 [INFO]: Starting Gemini analysis for report: 7ff0a2bc-b8cc-4b04-9956-c1a8ed128a5d {
-  "service": "medical-backend"
-}
-2026-08-16 14:16:05 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786869963/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786869959139-4002f974-4c78-416d-b77a-3e7048516129.png",
-  "reportType": "image/png"
-}
-2026-08-16 14:16:17 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 14:16:28 [INFO]: POST /api/ai/7ff0a2bc-b8cc-4b04-9956-c1a8ed128a5d/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:16:29 [INFO]: Starting Gemini analysis for report: 7ff0a2bc-b8cc-4b04-9956-c1a8ed128a5d {
-  "service": "medical-backend"
-}
-2026-08-16 14:16:36 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 14:16:48 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:16:58 [INFO]: POST /api/reports/upload {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:17:02 [INFO]: Cloudinary upload success {
-  "service": "medical-backend",
-  "publicId": "medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786870018996-ab17dd83-e518-45d7-bcfa-f82c38ee374f",
-  "url": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786870022/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786870018996-ab17dd83-e518-45d7-bcfa-f82c38ee374f.png"
-}
-2026-08-16 14:17:03 [INFO]: Report uploaded: 8397ec32-c7d8-42e7-87be-98a449fc5edb for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 14:17:03 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 14:17:03 [INFO]: POST /api/ai/8397ec32-c7d8-42e7-87be-98a449fc5edb/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:17:03 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:17:04 [INFO]: Starting Gemini analysis for report: 8397ec32-c7d8-42e7-87be-98a449fc5edb {
-  "service": "medical-backend"
-}
-2026-08-16 14:17:04 [INFO]: Extracting text from file {
-  "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786870022/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786870018996-ab17dd83-e518-45d7-bcfa-f82c38ee374f.png",
-  "reportType": "image/png"
-}
-2026-08-16 14:17:17 [ERROR]: 
+2026-09-02 15:08:29 [ERROR]: 
 Invalid `prisma.medicalReport.findUnique()` invocation:
 
 {
   where: {
-    id: "7ff0a2bc-b8cc-4b04-9956-c1a8ed128a5d"
+    id: "6e82bd96-de82-4d23-82d5-4c6ba898d99f"
   },
   include: {
     aIAnalysis: true,
@@ -1740,7 +30,7 @@ Invalid `prisma.medicalReport.findUnique()` invocation:
 Unknown field `aIAnalysis` for include statement on model `MedicalReport`. Available options are marked with ?. {
   "service": "medical-backend",
   "statusCode": 500,
-  "path": "/api/ai/8397ec32-c7d8-42e7-87be-98a449fc5edb/analyze",
+  "path": "/api/ai/5a0d9fbc-3040-445e-97e3-d13856cd0955/analyze",
   "method": "POST"
 }
 PrismaClientValidationError: 
@@ -1748,7 +38,7 @@ Invalid `prisma.medicalReport.findUnique()` invocation:
 
 {
   where: {
-    id: "7ff0a2bc-b8cc-4b04-9956-c1a8ed128a5d"
+    id: "6e82bd96-de82-4d23-82d5-4c6ba898d99f"
   },
   include: {
     aIAnalysis: true,
@@ -1767,21 +57,13 @@ Unknown field `aIAnalysis` for include statement on model `MedicalReport`. Avail
     at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
     at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
     at async ComparisonService.compareReports (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/comparisonServices.js:18:23)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:47:24
-2026-08-16 14:17:39 [INFO]: POST /api/ai/8397ec32-c7d8-42e7-87be-98a449fc5edb/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
-}
-2026-08-16 14:17:40 [INFO]: Starting Gemini analysis for report: 8397ec32-c7d8-42e7-87be-98a449fc5edb {
-  "service": "medical-backend"
-}
-2026-08-16 14:17:59 [ERROR]: 
+    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:43:24
+2026-09-02 15:09:48 [ERROR]: 
 Invalid `prisma.medicalReport.findUnique()` invocation:
 
 {
   where: {
-    id: "7ff0a2bc-b8cc-4b04-9956-c1a8ed128a5d"
+    id: "6e82bd96-de82-4d23-82d5-4c6ba898d99f"
   },
   include: {
     aIAnalysis: true,
@@ -1796,7 +78,7 @@ Invalid `prisma.medicalReport.findUnique()` invocation:
 Unknown field `aIAnalysis` for include statement on model `MedicalReport`. Available options are marked with ?. {
   "service": "medical-backend",
   "statusCode": 500,
-  "path": "/api/ai/8397ec32-c7d8-42e7-87be-98a449fc5edb/analyze",
+  "path": "/api/ai/5a0d9fbc-3040-445e-97e3-d13856cd0955/analyze",
   "method": "POST"
 }
 PrismaClientValidationError: 
@@ -1804,7 +86,7 @@ Invalid `prisma.medicalReport.findUnique()` invocation:
 
 {
   where: {
-    id: "7ff0a2bc-b8cc-4b04-9956-c1a8ed128a5d"
+    id: "6e82bd96-de82-4d23-82d5-4c6ba898d99f"
   },
   include: {
     aIAnalysis: true,
@@ -1823,527 +105,1493 @@ Unknown field `aIAnalysis` for include statement on model `MedicalReport`. Avail
     at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
     at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
     at async ComparisonService.compareReports (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/comparisonServices.js:18:23)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:47:24
-2026-08-16 14:18:54 [INFO]: GET /api/notifications/unread/count {
+    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:43:24
+2026-09-02 15:22:00 [ERROR]: Request failed with status code 401 {
   "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1788342717/medical_reports/44a089c0-9c13-4b00-acf7-798ac18cc193/1788342714478-97a00959-4af4-4d21-9cb9-76f24db4e415.pdf"
 }
-2026-08-16 14:18:57 [INFO]: GET /api/notifications/unread/count {
+2026-09-02 15:22:10 [ERROR]: Request failed with status code 401 {
   "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1788342717/medical_reports/44a089c0-9c13-4b00-acf7-798ac18cc193/1788342714478-97a00959-4af4-4d21-9cb9-76f24db4e415.pdf"
 }
-2026-08-16 14:19:08 [INFO]: POST /api/reports/upload {
+2026-09-02 15:33:42 [INFO]: Starting RAG-based Gemini analysis {
   "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+  "reportId": "cfc13be0-464b-4332-9e62-84961c09dda3"
 }
-2026-08-16 14:19:12 [INFO]: Cloudinary upload success {
+2026-09-02 15:33:43 [INFO]: Extracting document text {
   "service": "medical-backend",
-  "publicId": "medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786870148767-2824ad1b-acab-47a3-a01c-3e4dfc7c15d1",
-  "url": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786870152/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786870148767-2824ad1b-acab-47a3-a01c-3e4dfc7c15d1.png"
+  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1788343420/medical_reports/44a089c0-9c13-4b00-acf7-798ac18cc193/1788343417144-a3498087-7cb6-422a-8a92-538e10fe3a51.pdf",
+  "reportType": "application/pdf"
 }
-2026-08-16 14:19:12 [INFO]: Report uploaded: e3fbaae3-9f3f-43b3-8889-eed09ea25801 for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 14:19:12 [INFO]: In-app notification created for user: 0f65d0ee-a84d-4c21-870d-8de309801f4a {
-  "service": "medical-backend"
-}
-2026-08-16 14:19:12 [INFO]: POST /api/ai/e3fbaae3-9f3f-43b3-8889-eed09ea25801/analyze {
+2026-09-02 15:33:43 [ERROR]: Request failed with status code 401 {
   "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1788343420/medical_reports/44a089c0-9c13-4b00-acf7-798ac18cc193/1788343417144-a3498087-7cb6-422a-8a92-538e10fe3a51.pdf"
 }
-2026-08-16 14:19:12 [INFO]: GET /api/notifications/unread/count {
+2026-09-02 15:33:43 [ERROR]: Could not extract readable text from this document. Please upload a clearer PDF or text-based report. {
   "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+  "reportId": "cfc13be0-464b-4332-9e62-84961c09dda3"
 }
-2026-08-16 14:19:13 [INFO]: Starting Gemini analysis for report: e3fbaae3-9f3f-43b3-8889-eed09ea25801 {
-  "service": "medical-backend"
-}
-2026-08-16 14:19:13 [INFO]: Extracting text from file {
+2026-09-02 15:33:44 [ERROR]: Could not extract readable text from this document. Please upload a clearer PDF or text-based report. {
   "service": "medical-backend",
-  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1786870152/medical_reports/0f65d0ee-a84d-4c21-870d-8de309801f4a/1786870148767-2824ad1b-acab-47a3-a01c-3e4dfc7c15d1.png",
-  "reportType": "image/png"
+  "statusCode": 422,
+  "path": "/api/ai/cfc13be0-464b-4332-9e62-84961c09dda3/analyze",
+  "method": "POST"
 }
-2026-08-16 14:19:25 [ERROR]: 
-Invalid `prisma.medicalReport.findUnique()` invocation:
-
-{
-  where: {
-    id: "8397ec32-c7d8-42e7-87be-98a449fc5edb"
-  },
-  include: {
-    aIAnalysis: true,
-    ~~~~~~~~~~
-?   user?: true,
-?   aiAnalysis?: true,
-?   oldComparisons?: true,
-?   newComparisons?: true
-  }
+Error: Could not extract readable text from this document. Please upload a clearer PDF or text-based report.
+    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:75:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:35:22
+2026-09-02 15:34:02 [INFO]: Starting RAG-based Gemini analysis {
+  "service": "medical-backend",
+  "reportId": "cfc13be0-464b-4332-9e62-84961c09dda3"
 }
-
-Unknown field `aIAnalysis` for include statement on model `MedicalReport`. Available options are marked with ?. {
+2026-09-02 15:34:02 [INFO]: Extracting document text {
+  "service": "medical-backend",
+  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1788343420/medical_reports/44a089c0-9c13-4b00-acf7-798ac18cc193/1788343417144-a3498087-7cb6-422a-8a92-538e10fe3a51.pdf",
+  "reportType": "application/pdf"
+}
+2026-09-02 15:34:02 [ERROR]: Request failed with status code 401 {
+  "service": "medical-backend",
+  "fileUrl": "https://res.cloudinary.com/dzvxtdvjv/image/upload/v1788343420/medical_reports/44a089c0-9c13-4b00-acf7-798ac18cc193/1788343417144-a3498087-7cb6-422a-8a92-538e10fe3a51.pdf"
+}
+2026-09-02 15:34:02 [ERROR]: Could not extract readable text from this document. Please upload a clearer PDF or text-based report. {
+  "service": "medical-backend",
+  "reportId": "cfc13be0-464b-4332-9e62-84961c09dda3"
+}
+2026-09-02 15:34:02 [ERROR]: Could not extract readable text from this document. Please upload a clearer PDF or text-based report. {
+  "service": "medical-backend",
+  "statusCode": 422,
+  "path": "/api/ai/cfc13be0-464b-4332-9e62-84961c09dda3/analyze",
+  "method": "POST"
+}
+Error: Could not extract readable text from this document. Please upload a clearer PDF or text-based report.
+    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:75:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:35:22
+2026-09-02 15:54:48 [INFO]: Extracting text from buffer {
+  "service": "medical-backend",
+  "mimeType": "application/pdf",
+  "fileName": "CBC-test-report-format-example-sample-template-Drlogy-lab-report.pdf",
+  "kind": "pdf"
+}
+2026-09-02 15:54:56 [INFO]: Starting RAG-based Gemini analysis {
+  "service": "medical-backend",
+  "reportId": "4657759c-b502-4173-bc3b-33ebeb2dc2b8"
+}
+2026-09-02 15:54:58 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent: [404 Not Found] models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
+  "service": "medical-backend",
+  "reportId": "4657759c-b502-4173-bc3b-33ebeb2dc2b8"
+}
+2026-09-02 15:54:58 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent: [404 Not Found] models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
   "service": "medical-backend",
   "statusCode": 500,
-  "path": "/api/ai/e3fbaae3-9f3f-43b3-8889-eed09ea25801/analyze",
+  "path": "/api/ai/4657759c-b502-4173-bc3b-33ebeb2dc2b8/analyze",
   "method": "POST"
 }
-PrismaClientValidationError: 
-Invalid `prisma.medicalReport.findUnique()` invocation:
-
-{
-  where: {
-    id: "8397ec32-c7d8-42e7-87be-98a449fc5edb"
-  },
-  include: {
-    aIAnalysis: true,
-    ~~~~~~~~~~
-?   user?: true,
-?   aiAnalysis?: true,
-?   oldComparisons?: true,
-?   newComparisons?: true
-  }
-}
-
-Unknown field `aIAnalysis` for include statement on model `MedicalReport`. Available options are marked with ?.
-    at wn (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:29:1363)
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6958)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async ComparisonService.compareReports (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/comparisonServices.js:18:23)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:47:24
-2026-08-16 14:20:10 [INFO]: POST /api/ai/e3fbaae3-9f3f-43b3-8889-eed09ea25801/analyze {
+Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent: [404 Not Found] models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ModelService.ListModels to see the list of available models and their supported methods.
+    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:164:13)
+    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:35:22
+2026-09-02 15:56:11 [INFO]: Starting RAG-based Gemini analysis {
   "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+  "reportId": "4657759c-b502-4173-bc3b-33ebeb2dc2b8"
 }
-2026-08-16 14:20:11 [INFO]: Starting Gemini analysis for report: e3fbaae3-9f3f-43b3-8889-eed09ea25801 {
-  "service": "medical-backend"
-}
-2026-08-16 14:20:12 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 47.179582888s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"47s"}] {
+2026-09-02 15:56:12 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent: [404 Not Found] models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
   "service": "medical-backend",
-  "reportId": "e3fbaae3-9f3f-43b3-8889-eed09ea25801"
+  "reportId": "4657759c-b502-4173-bc3b-33ebeb2dc2b8"
 }
-2026-08-16 14:20:12 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 47.179582888s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"47s"}] {
+2026-09-02 15:56:13 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent: [404 Not Found] models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ModelService.ListModels to see the list of available models and their supported methods. {
   "service": "medical-backend",
   "statusCode": 500,
-  "path": "/api/ai/e3fbaae3-9f3f-43b3-8889-eed09ea25801/analyze",
+  "path": "/api/ai/4657759c-b502-4173-bc3b-33ebeb2dc2b8/analyze",
   "method": "POST"
 }
-Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 47.179582888s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"47s"}]
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:195:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 14:28:45 [INFO]: POST /api/ai/e3fbaae3-9f3f-43b3-8889-eed09ea25801/analyze {
+Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent: [404 Not Found] models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ModelService.ListModels to see the list of available models and their supported methods.
+    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:164:13)
+    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:35:22
+2026-09-02 16:02:21 [INFO]: Extracting text from buffer {
   "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+  "mimeType": "application/pdf",
+  "fileName": "CBC-test-report-format-example-sample-template-Drlogy-lab-report.pdf",
+  "kind": "pdf"
 }
-2026-08-16 14:28:45 [INFO]: GET /api/notifications/unread/count {
+2026-09-02 16:02:26 [INFO]: Starting RAG-based Gemini analysis {
   "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+  "reportId": "cbdcdbf6-1345-4a90-bd28-7bcaf93fbb4d"
 }
-2026-08-16 14:28:47 [INFO]: GET /api/notifications/unread/count {
+2026-09-02 16:02:33 [INFO]: Indexed report document chunks {
   "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+  "reportId": "cbdcdbf6-1345-4a90-bd28-7bcaf93fbb4d",
+  "chunkCount": 6
 }
-2026-08-16 14:28:47 [INFO]: Starting Gemini analysis for report: e3fbaae3-9f3f-43b3-8889-eed09ea25801 {
+2026-09-02 16:02:45 [INFO]: RAG analysis completed {
+  "service": "medical-backend",
+  "reportId": "cbdcdbf6-1345-4a90-bd28-7bcaf93fbb4d",
+  "chunksUsed": 6
+}
+2026-09-02 17:38:45 [INFO]: Extracting text from buffer {
+  "service": "medical-backend",
+  "mimeType": "image/png",
+  "fileName": "testingreport.png",
+  "kind": "image"
+}
+2026-09-02 17:38:52 [INFO]: Starting RAG-based Gemini analysis {
+  "service": "medical-backend",
+  "reportId": "15ec4b93-79b7-43fc-bc83-4cb4191cec77"
+}
+2026-09-02 17:38:54 [INFO]: Indexed report document chunks {
+  "service": "medical-backend",
+  "reportId": "15ec4b93-79b7-43fc-bc83-4cb4191cec77",
+  "chunkCount": 1
+}
+2026-09-02 17:39:11 [INFO]: Starting RAG-based Gemini analysis {
+  "service": "medical-backend",
+  "reportId": "15ec4b93-79b7-43fc-bc83-4cb4191cec77"
+}
+2026-09-02 17:39:14 [INFO]: Indexed report document chunks {
+  "service": "medical-backend",
+  "reportId": "15ec4b93-79b7-43fc-bc83-4cb4191cec77",
+  "chunkCount": 1
+}
+2026-09-02 17:39:16 [INFO]: RAG analysis completed {
+  "service": "medical-backend",
+  "reportId": "15ec4b93-79b7-43fc-bc83-4cb4191cec77",
+  "chunksUsed": 6
+}
+2026-09-02 17:39:27 [INFO]: RAG analysis completed {
+  "service": "medical-backend",
+  "reportId": "15ec4b93-79b7-43fc-bc83-4cb4191cec77",
+  "chunksUsed": 6
+}
+2026-09-02 17:42:41 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:42:41 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/ai/15ec4b93-79b7-43fc-bc83-4cb4191cec77/analyze",
+  "method": "POST"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:42:41 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:42:41 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:42:41 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:42:41 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:45:44 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:45:44 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/ai/15ec4b93-79b7-43fc-bc83-4cb4191cec77/analyze",
+  "method": "POST"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:45:44 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:45:44 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:45:44 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:45:44 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:45:49 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:45:49 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/ai/15ec4b93-79b7-43fc-bc83-4cb4191cec77/analyze",
+  "method": "POST"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:45:49 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:45:49 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:45:49 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:45:49 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:46:04 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:46:04 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/ai/15ec4b93-79b7-43fc-bc83-4cb4191cec77/analyze",
+  "method": "POST"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:46:04 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:46:04 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:46:04 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:46:04 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:46:21 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:46:21 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/ai/15ec4b93-79b7-43fc-bc83-4cb4191cec77/analyze",
+  "method": "POST"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:46:21 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:46:21 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 17:46:21 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 17:46:21 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 18:24:53 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 18:24:53 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/ai/15ec4b93-79b7-43fc-bc83-4cb4191cec77/analyze",
+  "method": "POST"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 18:24:53 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 18:24:53 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-02 18:24:53 [ERROR]: Authentication error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "name": "PrismaClientKnownRequestError",
+  "code": "P1001",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "User",
+    "database_host": "db.prisma.io",
+    "database_port": 5432
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
+2026-09-02 18:24:53 [ERROR]: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`. {
+  "service": "medical-backend",
+  "statusCode": 401,
+  "path": "/api/notifications/unread/count",
+  "method": "GET"
+}
+Error: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+Can't reach database server at `db.prisma.io:5432`
+
+Please make sure your database server is running at `db.prisma.io:5432`.
+    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
+2026-09-03 11:14:18 [WARN]: SIGINT received. Closing database connection... {
   "service": "medical-backend"
 }
-2026-08-16 14:28:48 [ERROR]: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 10.56196467s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"10s"}] {
+2026-09-03 11:30:59 [ERROR]: ❌ Database connection failed {
   "service": "medical-backend",
-  "reportId": "e3fbaae3-9f3f-43b3-8889-eed09ea25801"
+  "error": "Can't reach database server at `db.prisma.io:5432`\n\nPlease make sure your database server is running at `db.prisma.io:5432`."
 }
-2026-08-16 14:28:48 [ERROR]: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 10.56196467s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"10s"}] {
-  "service": "medical-backend",
-  "statusCode": 500,
-  "path": "/api/ai/e3fbaae3-9f3f-43b3-8889-eed09ea25801/analyze",
-  "method": "POST"
+2026-09-03 11:36:11 [WARN]: Qdrant not configured — RAG will use PostgreSQL cosine fallback {
+  "service": "medical-backend"
 }
-Error: AI Analysis failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 10.56196467s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"10s"}]
-    at AIAnalysisService.analyzeWithGeminiGoogle (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/services/aiAnalysisServices.js:195:13)
-    at async file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/controller/aiAnalysisController.js:39:22
-2026-08-16 14:59:54 [INFO]: POST /api/ai/e3fbaae3-9f3f-43b3-8889-eed09ea25801/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+2026-09-03 11:36:11 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-2026-08-16 14:59:54 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+2026-09-03 11:36:11 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-2026-08-16 14:59:54 [ERROR]: Authentication error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "name": "PrismaClientKnownRequestError",
-  "code": "P1001",
-  "clientVersion": "5.22.0",
-  "meta": {
-    "modelName": "User",
-    "database_host": "db.prisma.io",
-    "database_port": 5432
-  }
+2026-09-03 11:36:11 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-PrismaClientKnownRequestError: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 14:59:54 [ERROR]: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "statusCode": 401,
-  "path": "/api/ai/e3fbaae3-9f3f-43b3-8889-eed09ea25801/analyze",
-  "method": "POST"
+2026-09-03 11:36:11 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-Error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
-2026-08-16 14:59:54 [ERROR]: Authentication error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "name": "PrismaClientKnownRequestError",
-  "code": "P1001",
-  "clientVersion": "5.22.0",
-  "meta": {
-    "modelName": "User",
-    "database_host": "db.prisma.io",
-    "database_port": 5432
-  }
+2026-09-03 11:36:11 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-PrismaClientKnownRequestError: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 14:59:54 [ERROR]: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "statusCode": 401,
-  "path": "/api/notifications/unread/count",
-  "method": "GET"
+2026-09-03 11:36:11 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-Error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
-2026-08-16 14:59:54 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+2026-09-03 11:36:11 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-2026-08-16 14:59:54 [ERROR]: Authentication error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "name": "PrismaClientKnownRequestError",
-  "code": "P1001",
-  "clientVersion": "5.22.0",
-  "meta": {
-    "modelName": "User",
-    "database_host": "db.prisma.io",
-    "database_port": 5432
-  }
+2026-09-03 11:36:11 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-PrismaClientKnownRequestError: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 14:59:54 [ERROR]: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "statusCode": 401,
-  "path": "/api/notifications/unread/count",
-  "method": "GET"
+2026-09-03 11:36:11 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-Error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
-2026-08-16 21:12:15 [INFO]: POST /api/ai/e3fbaae3-9f3f-43b3-8889-eed09ea25801/analyze {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+2026-09-03 11:36:11 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-2026-08-16 21:12:15 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+2026-09-03 11:36:11 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-2026-08-16 21:12:15 [ERROR]: Authentication error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "name": "PrismaClientKnownRequestError",
-  "code": "P1001",
-  "clientVersion": "5.22.0",
-  "meta": {
-    "modelName": "User",
-    "database_host": "db.prisma.io",
-    "database_port": 5432
-  }
+2026-09-03 11:36:11 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-PrismaClientKnownRequestError: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 21:12:15 [ERROR]: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "statusCode": 401,
-  "path": "/api/ai/e3fbaae3-9f3f-43b3-8889-eed09ea25801/analyze",
-  "method": "POST"
+2026-09-03 11:36:12 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-Error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
-2026-08-16 21:12:15 [ERROR]: Authentication error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "name": "PrismaClientKnownRequestError",
-  "code": "P1001",
-  "clientVersion": "5.22.0",
-  "meta": {
-    "modelName": "User",
-    "database_host": "db.prisma.io",
-    "database_port": 5432
-  }
+2026-09-03 11:36:12 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-PrismaClientKnownRequestError: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 21:12:15 [ERROR]: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "statusCode": 401,
-  "path": "/api/notifications/unread/count",
-  "method": "GET"
+2026-09-03 11:36:13 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-Error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
-2026-08-16 21:12:15 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+2026-09-03 11:36:13 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-2026-08-16 21:12:15 [ERROR]: Authentication error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "name": "PrismaClientKnownRequestError",
-  "code": "P1001",
-  "clientVersion": "5.22.0",
-  "meta": {
-    "modelName": "User",
-    "database_host": "db.prisma.io",
-    "database_port": 5432
-  }
+2026-09-03 11:36:16 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-PrismaClientKnownRequestError: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at $n.handleRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:7315)
-    at $n.handleAndLogRequestError (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6623)
-    at $n.request (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:121:6307)
-    at async l (D:\pratices\Native_react\hospitalProject\aiHealthChecker\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
-    at async authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:16:18)
-2026-08-16 21:12:15 [ERROR]: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`. {
-  "service": "medical-backend",
-  "statusCode": 401,
-  "path": "/api/notifications/unread/count",
-  "method": "GET"
+2026-09-03 11:36:16 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-Error: 
-Invalid `prisma.user.findUnique()` invocation:
-
-
-Can't reach database server at `db.prisma.io:5432`
-
-Please make sure your database server is running at `db.prisma.io:5432`.
-    at authenticate (file:///D:/pratices/Native_react/hospitalProject/aiHealthChecker/backend/middleware/auth.js:35:10)
-2026-08-16 21:18:07 [INFO]: GET /api/auth/google {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+2026-09-03 11:36:24 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-2026-08-16 21:18:15 [INFO]: GET /api/auth/google/callback {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+2026-09-03 11:36:24 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-2026-08-16 21:18:21 [INFO]: GET /api/auth/me {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+2026-09-03 11:36:48 [WARN]: Qdrant not configured — RAG will use PostgreSQL cosine fallback {
+  "service": "medical-backend"
 }
-2026-08-16 21:18:21 [INFO]: GET /api/auth/me {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+2026-09-03 11:36:48 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-2026-08-16 21:18:21 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+2026-09-03 11:36:48 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-2026-08-16 21:18:23 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+2026-09-03 11:36:48 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-2026-08-16 21:21:30 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+2026-09-03 11:36:48 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-2026-08-16 21:21:32 [INFO]: GET /api/notifications/unread/count {
-  "service": "medical-backend",
-  "ip": "::1",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+2026-09-03 11:36:48 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
 }
-2026-08-16 21:45:21 [WARN]: SIGINT received. Closing database connection... {
+2026-09-03 11:36:48 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:36:48 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:36:48 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:36:48 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:36:48 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:36:48 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:36:48 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:36:49 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:36:49 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:36:50 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:36:50 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:36:53 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:36:53 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:01 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:01 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:26 [WARN]: Qdrant not configured — RAG will use PostgreSQL cosine fallback {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:27 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:27 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:30 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:30 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:37:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:38:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:38:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:38:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:38:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:38:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:38:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:39:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:39:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:39:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:39:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:39:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:39:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:40:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:40:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:40:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:40:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:40:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:40:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:41:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:41:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:41:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:41:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:41:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:41:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:42:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:42:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:42:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:42:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:42:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:42:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:43:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:43:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:43:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:43:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:43:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:43:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:44:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:44:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:44:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:44:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:44:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:44:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:15 [WARN]: SIGINT received. Closing database connection... {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:26 [WARN]: Qdrant not configured — RAG will use PostgreSQL cosine fallback {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:26 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:27 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:27 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:28 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:28 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:31 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:31 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:45:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:46:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:46:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:46:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:46:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:46:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:46:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:47:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:47:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:47:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:47:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:47:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:47:59 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:48:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:48:19 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:48:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:48:39 [WARN]: connect ECONNREFUSED 127.0.0.1:6379 {
+  "service": "medical-backend"
+}
+2026-09-03 11:48:52 [WARN]: SIGINT received. Closing database connection... {
   "service": "medical-backend"
 }

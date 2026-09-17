@@ -10,6 +10,7 @@ export class ReportRepository {
         fileUrl: reportData.fileUrl,
         fileSize: reportData.fileSize,
         mimeType: reportData.mimeType,
+        extractedText: reportData.extractedText || null,
         reportStatus: reportData.reportStatus || 'PENDING',
       },
     });
