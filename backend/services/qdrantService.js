@@ -4,7 +4,7 @@ import logger from '../config/logger.js';
 
 const COLLECTION = config.qdrant?.collection || 'medical_report_chunks';
 const VECTOR_SIZE = config.qdrant?.vectorSize || 768;
-
+ 
 class QdrantService {
   constructor() {
     this.client = null;
