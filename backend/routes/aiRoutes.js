@@ -5,7 +5,7 @@ import { authenticate } from '../middleware/auth.js';
 const router = Router();
 
 router.use(authenticate);
-
+// routes
 router.get('/history', aiAnalysisController.getAnalysisHistory);
 router.get('/:reportId/status', aiAnalysisController.getAnalysisStatus);
 router.post('/:reportId/analyze', aiAnalysisController.analyzeReport);
